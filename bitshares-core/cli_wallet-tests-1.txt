@@ -1,0 +1,68 @@
+sell_asset nathan 1000 TEST 150 BTS 100000 false true
+
+sell_asset nathan 5000 BTS 1000 TEST 100000 false true
+
+sell_asset nathan 10000 TEST 50000 BTS 100000 false true  5 offer
+
+sell_asset nathan 50000 BTS 10000 TEST 100000 false true
+
+sell_asset nathan 10000 TEST 20000 BTS 100000 false true
+
+bts * 100000   test * 100
+
+sell_asset nathan 5000 BTS 100 TEST 100000 false true  50 bid
+sell_asset nathan 50 BTS 100 TEST 100000 false true  .50 bid
+
+
+sell_asset nathan 1000 TEST 500 BTS 100000 false true  .5 offer
+
+
+sell_asset nathan 250 BTS 1000 TEST 100000 false true  .25 bid
+sell_asset nathan 100 TEST 5 BTS 100000 false true  .05 offer
+sell_asset nathan 12 TEST 10 BTS 100000 false true
+
+sell_asset nathan 250 BTS 100 TEST 100000 false true
+
+//isCore=true
+sell_asset nathan 5000 BTS 100 TEST 100000 false true  50 bid
+
+sell_asset nathan 15000 TEST 1000 BTS 100000 false true  
+sell_asset nathan 5000 BTS 100 TEST 100000 false true 
+sell_asset nathan 7 BTS 100 TEST 100000 false true 
+sell_asset nathan 5000 BTS 28850 TEST 100000 false true 
+
+sell_asset nathan 1000 TEST 398 BTS 100000 false true
+sell_asset nathan 500000 BTS 10000 TEST 100000 false true
+
+sell_asset nathan 15000 BTS 1000 TEST 100000 false true  
+sell_asset nathan 5000 TEST 100 BTS 100000 false true
+
+sell_asset nathan 1000 BTS 4000 TEST 100000 false true  
+sell_asset nathan 1000 BTS 3000 TEST 100000 false true  
+sell_asset nathan 8000 TEST 200 BTS 100000 false true
+
+sell_asset nathan 1000 TEST 4000 BTS 100000 false true  
+sell_asset nathan 1000 TEST 3000 BTS 100000 false true  
+sell_asset nathan 8000 BTS 200 TEST 100000 false true
+
+sell_asset nathan 200 BTS 200 TEST 100000 false true   1 bid
+sell_asset nathan 50 TEST 5 BTS 100000 false true
+
+sell_asset nathan 200 TEST 200 BTS 100000 false true   1 ofr  
+sell_asset nathan 500 BTS 250 TEST 100000 false true 
+
+cancel_order 1.7.84 true
+cancel_order 1.7.86 true
+cancel_order 1.7.87 true
+cancel_order 1.7.103 true
+cancel_order 1.7.104 true
+cancel_order 1.7.105 true
+cancel_order 1.7.106 true
+cancel_order 1.7.107 true
+cancel_order 1.7.108 true
+
+
+(BTS/TEST or TEST:BTS, isCoreBuySell = false)
+(TEST/BTS or BTS:TEST, isCoreBuySell = true)
+
+sell_asset nathan 5000 BTS 10000 TEST 100000 false true  
