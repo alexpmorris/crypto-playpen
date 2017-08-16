@@ -1,0 +1,65 @@
+rm -R data
+rm -R object_database
+rm -R witness_node_data_dir
+./witness_node --create-genesis-json my-genesis.json
+./witness_node --genesis-json my-genesis.json
+./witness_node --data-dir data --genesis-json my-genesis.json
+# replace config.ini with p2p, rpc, enable-stale-production, witnesses
+./witness_node --data-dir data
+--> to restart, delete data/blockchain/ -> database and object_database directories
+
+./cli_wallet --wallet-file=wallet.json --chain-id 7e0c3d513d8f16939192c2340e9a10e3983ed4d7e6e98d95bfaf31955562b250 --server-rpc-endpoint=ws://127.0.0.1:8090
+
+https://github.com/steemit/steem/blob/8276107136f1f228f72e7ed8e219334a8cde5d4a/libraries/chain/database.cpp
+https://github.com/BitSharesEurope/testnet/blob/testnet/genesis.json
+https://stackoverflow.com/questions/43134300/bitshares-failed-to-sync-with-the-api-server
+
+OUTDATED!!!!!! --> NO NO NO --- https://github.com/bitshares/bitshares-core/wiki/private-testnet
+
+http://docs.bitshares.eu/testnet/private-testnet.html - https://bitsharestalk.org/index.php/topic,21079.15.html
+	http://docs.bitshares.org/bitshares/tutorials/uia-create-manual.html
+		create_asset nathan WHALEHOLE 0 {} {} true
+		issue_asset nathan 10000 WHALEHOLE "" true
+		https://github.com/cryptonomex/graphene-ui/blob/776e892668ce20a8ebc23be56f73768ec535e55c/web/test/README.txt
+			dbg_make_uia nathan TEST
+			dbg_make_uia nathan MORE
+			issue_asset nathan 2323231232 TEST "" true
+			issue_asset nathan 2323231232 MORE "" true
+			sell_asset nathan 80 TEST 100 BTS 100000 false true
+			sell_asset nathan 80 TEST 480 BTS 100000 false true
+			sell_asset nathan 2 TEST 12 BTS 100000 false true
+			sell_asset nathan 12 BTS 2 TEST 100000 false true
+sell_asset nathan 1000 BTS 2 TEST 100000 false true
+sell_asset nathan 1000000 BTS 20000 TEST 100000 false true
+get_limit_orders TEST BTS 100
+cancel_order 1.7.8 true
+sell_asset nathan 1000 TEST 4500 BTS 100000 false true   <-sell
+sell_asset nathan 345 BTS 1.5 TEST 100000 false true     <-buy
+sell_asset nathan 1000 TEST 450 BTS 100000 false true
+sell_asset nathan 250 BTS 1000 TEST 100000 false true     <-- 25000000 / 100000
+sell_asset nathan 1000 TEST 200 BTS 100000 false true
+sell_asset nathan 1000 TEST 150 BTS 100000 false true
+sell_asset nathan 125 BTS 250 TEST 100000 false true
+sell_asset nathan 50 BTS 100 TEST 100000 false true       <-buy
+sell_asset nathan 45 BTS 100 TEST 100000 false true       <-buy
+sell_asset nathan 40 BTS 100 TEST 100000 false true       <-buy
+sell_asset nathan 500 TEST 150 BTS 100000 false true      <-sell
+sell_asset nathan 1 TEST 919 BTS 100000 false true
+sell_asset nathan 0.185 BTS 0.0002 TEST 100000 false true
+sell_asset nathan 1850 BTS 2 TEST 100000 false true     <- buy
+sell_asset nathan 3700000 BTS 2000 TEST 100000 false true     <- buy 370000000000 / 200000
+sell_asset nathan 0.1 TEST 93 BTS 100000 false true
+sell_asset nathan 1.01 TEST 93.93 BTS 100000 false true    <-sell   101 / 9393000  
+sell_asset nathan 1.01 TEST 1855.93 BTS 100000 false true    <-sell   
+sell_asset nathan 1.00 TEST 1850 BTS 100000 false true
+sell_asset nathan 1000 TEST 950 BTS 100000 false true
+http://docs.bitshares.org/bitshares/user/dex-trading.html
+
+Side	Sell	Buy
+Ask quote base
+Bid base  quote
+
+https://bitshares.org/doxygen/db__market_8cpp_source.html
+https://bitshares.org/doxygen/market__evaluator_8hpp_source.html
+https://bitshares.org/doxygen/market_8hpp_source.html
+
