@@ -7,6 +7,7 @@ rm -R witness_node_data_dir
 # replace config.ini with p2p, rpc, enable-stale-production, witnesses
 ./witness_node --data-dir data
 --> to restart, delete data/blockchain/ -> database and object_database directories
+	then rerun: ./witness_node --data-dir data --genesis-json my-genesis.json
 
 ./cli_wallet --wallet-file=wallet.json --chain-id 7e0c3d513d8f16939192c2340e9a10e3983ed4d7e6e98d95bfaf31955562b250 --server-rpc-endpoint=ws://127.0.0.1:8090
 
