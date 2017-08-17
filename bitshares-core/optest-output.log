@@ -1,0 +1,888 @@
+2246712ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/ef03-f195-b8a3-78fe ...
+2246712ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2246719ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246751ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246771ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/d7e1-d709-4b0c-f7e9 ...
+2246771ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2246776ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246804ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246830ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/c5cf-23d5-f266-8b18 ...
+2246830ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2246833ms th_a       account.cpp:101               is_valid_name        ] .
+2246833ms th_a       account.cpp:101               is_valid_name        ] .
+2246833ms th_a       account.cpp:114               is_valid_name        ] .
+2246833ms th_a       account.cpp:130               is_valid_name        ] .
+2246833ms th_a       account.cpp:101               is_valid_name        ] .
+2246833ms th_a       account.cpp:114               is_valid_name        ] .
+2246834ms th_a       account.cpp:101               is_valid_name        ] .
+2246834ms th_a       account.cpp:78                is_valid_name        ] .
+2246834ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2246834ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2246836ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246882ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246902ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/614b-a98d-b792-7b8c ...
+2246902ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2246906ms th_a       account.cpp:101               is_valid_name        ] .
+2246906ms th_a       account.cpp:101               is_valid_name        ] .
+2246906ms th_a       account.cpp:114               is_valid_name        ] .
+2246907ms th_a       account.cpp:130               is_valid_name        ] .
+2246907ms th_a       account.cpp:101               is_valid_name        ] .
+2246907ms th_a       account.cpp:114               is_valid_name        ] .
+2246907ms th_a       account.cpp:101               is_valid_name        ] .
+2246907ms th_a       account.cpp:78                is_valid_name        ] .
+2246907ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2246908ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2246909ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246934ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246955ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/941a-4765-7a78-9979 ...
+2246955ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2246959ms th_a       account.cpp:101               is_valid_name        ] .
+2246959ms th_a       account.cpp:101               is_valid_name        ] .
+2246959ms th_a       account.cpp:114               is_valid_name        ] .
+2246960ms th_a       account.cpp:130               is_valid_name        ] .
+2246960ms th_a       account.cpp:101               is_valid_name        ] .
+2246960ms th_a       account.cpp:114               is_valid_name        ] .
+2246960ms th_a       account.cpp:101               is_valid_name        ] .
+2246960ms th_a       account.cpp:78                is_valid_name        ] .
+2246960ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2246960ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2246963ms th_a       optest.cpp:397                test_method          ] op.extensions: {"isCoreBuySell":false} 
+2246963ms th_a       optest.cpp:400                test_method          ] get_order_flags: {"isCoreBuySell":false} 
+2246963ms th_a       optest.cpp:401                test_method          ] get_order_flags.isCoreBuySell: false 
+2246963ms th_a       optest.cpp:403                test_method          ] get_order_flags.isCoreBuySell: false 
+2246963ms th_a       optest.cpp:404                test_method          ] orderFlagFalse
+2246963ms th_a       optest.cpp:316                matching_test_case_s ] 1/ask_core.sell_price.to_real(): 2000.00000000000000000 
+2246963ms th_a       optest.cpp:317                matching_test_case_s ] bid_usd.sell_price.to_real(): 5000.00000000000000000 
+2246963ms th_a       optest.cpp:318                matching_test_case_s ] bid_usd.amount_for_sale() > match_price: false 
+2246963ms th_a       optest.cpp:321                matching_test_case_s ] usd_max_counter_size: 200000000 
+2246963ms th_a       optest.cpp:322                matching_test_case_s ] bid_usd.amount_for_sale(): {"amount":500000000,"asset_id":"1.3.0"} 
+2246963ms th_a       optest.cpp:324                matching_test_case_s ] pay_refund: 300000000 
+2246963ms th_a       optest.cpp:343                matching_test_case_b ] ask_core.sell_price.to_real(): 10.50000000000000000 
+2246963ms th_a       optest.cpp:344                matching_test_case_b ] 1/bid_usd.sell_price.to_real(): 6.00000000000000000 
+2246963ms th_a       optest.cpp:345                matching_test_case_b ] bid_usd.amount_for_sale() > match_price: true 
+2246963ms th_a       optest.cpp:348                matching_test_case_b ] usd_max_counter_size: 45 
+2246963ms th_a       optest.cpp:349                matching_test_case_b ] bid_usd.amount_for_sale(): {"amount":80,"asset_id":"1.3.1"} 
+2246963ms th_a       optest.cpp:351                matching_test_case_b ] pay_refund: 35 
+2246963ms th_a       optest.cpp:316                matching_test_case_s ] 1/ask_core.sell_price.to_real(): 6.00000000000000000 
+2246963ms th_a       optest.cpp:317                matching_test_case_s ] bid_usd.sell_price.to_real(): 10.50000000000000000 
+2246963ms th_a       optest.cpp:318                matching_test_case_s ] bid_usd.amount_for_sale() > match_price: false 
+2246963ms th_a       optest.cpp:321                matching_test_case_s ] usd_max_counter_size: 12 
+2246963ms th_a       optest.cpp:322                matching_test_case_s ] bid_usd.amount_for_sale(): {"amount":21,"asset_id":"1.3.0"} 
+2246963ms th_a       optest.cpp:324                matching_test_case_s ] pay_refund: 9 
+2246963ms th_a       optest.cpp:343                matching_test_case_b ] ask_core.sell_price.to_real(): 10.50000000000000000 
+2246963ms th_a       optest.cpp:344                matching_test_case_b ] 1/bid_usd.sell_price.to_real(): 6.00000000000000000 
+2246963ms th_a       optest.cpp:345                matching_test_case_b ] bid_usd.amount_for_sale() > match_price: true 
+2246963ms th_a       optest.cpp:348                matching_test_case_b ] usd_max_counter_size: 45 
+2246963ms th_a       optest.cpp:349                matching_test_case_b ] bid_usd.amount_for_sale(): {"amount":80,"asset_id":"1.3.1"} 
+2246963ms th_a       optest.cpp:351                matching_test_case_b ] pay_refund: 35 
+2246963ms th_a       optest.cpp:343                matching_test_case_b ] ask_core.sell_price.to_real(): 1.50000000000000000 
+2246963ms th_a       optest.cpp:344                matching_test_case_b ] 1/bid_usd.sell_price.to_real(): 0.45454545454545453 
+2246963ms th_a       optest.cpp:345                matching_test_case_b ] bid_usd.amount_for_sale() > match_price: true 
+2246963ms th_a       optest.cpp:348                matching_test_case_b ] usd_max_counter_size: 3 
+2246963ms th_a       optest.cpp:349                matching_test_case_b ] bid_usd.amount_for_sale(): {"amount":11,"asset_id":"1.3.1"} 
+2246963ms th_a       optest.cpp:351                matching_test_case_b ] pay_refund: 8 
+2246963ms th_a       optest.cpp:316                matching_test_case_s ] 1/ask_core.sell_price.to_real(): 0.80000000000000004 
+2246963ms th_a       optest.cpp:317                matching_test_case_s ] bid_usd.sell_price.to_real(): 1.36363636363636354 
+2246963ms th_a       optest.cpp:318                matching_test_case_s ] bid_usd.amount_for_sale() > match_price: false 
+2246963ms th_a       optest.cpp:321                matching_test_case_s ] usd_max_counter_size: 8 
+2246963ms th_a       optest.cpp:322                matching_test_case_s ] bid_usd.amount_for_sale(): {"amount":15,"asset_id":"1.3.0"} 
+2246963ms th_a       optest.cpp:324                matching_test_case_s ] pay_refund: 7 
+2246963ms th_a       optest.cpp:343                matching_test_case_b ] ask_core.sell_price.to_real(): 4.00000000000000000 
+2246963ms th_a       optest.cpp:344                matching_test_case_b ] 1/bid_usd.sell_price.to_real(): 2.00000000000000000 
+2246964ms th_a       optest.cpp:345                matching_test_case_b ] bid_usd.amount_for_sale() > match_price: true 
+2246964ms th_a       optest.cpp:348                matching_test_case_b ] usd_max_counter_size: 150 
+2246964ms th_a       optest.cpp:349                matching_test_case_b ] bid_usd.amount_for_sale(): {"amount":300,"asset_id":"1.3.1"} 
+2246964ms th_a       optest.cpp:351                matching_test_case_b ] pay_refund: 150 
+2246964ms th_a       optest.cpp:343                matching_test_case_b ] ask_core.sell_price.to_real(): 0.50000000000000000 
+2246964ms th_a       optest.cpp:344                matching_test_case_b ] 1/bid_usd.sell_price.to_real(): 0.16666666666666666 
+2246964ms th_a       optest.cpp:345                matching_test_case_b ] bid_usd.amount_for_sale() > match_price: true 
+2246964ms th_a       optest.cpp:348                matching_test_case_b ] usd_max_counter_size: 100 
+2246964ms th_a       optest.cpp:349                matching_test_case_b ] bid_usd.amount_for_sale(): {"amount":300,"asset_id":"1.3.1"} 
+2246964ms th_a       optest.cpp:351                matching_test_case_b ] pay_refund: 200 
+2246964ms th_a       optest.cpp:316                matching_test_case_s ] 1/ask_core.sell_price.to_real(): 0.25000000000000000 
+2246964ms th_a       optest.cpp:317                matching_test_case_s ] bid_usd.sell_price.to_real(): 0.91666666666666663 
+2246964ms th_a       optest.cpp:318                matching_test_case_s ] bid_usd.amount_for_sale() > match_price: false 
+2246964ms th_a       optest.cpp:321                matching_test_case_s ] usd_max_counter_size: 75 
+2246964ms th_a       optest.cpp:322                matching_test_case_s ] bid_usd.amount_for_sale(): {"amount":275,"asset_id":"1.3.0"} 
+2246964ms th_a       optest.cpp:324                matching_test_case_s ] pay_refund: 200 
+2246964ms th_a       optest.cpp:316                matching_test_case_s ] 1/ask_core.sell_price.to_real(): 3.00000000000000000 
+2246964ms th_a       optest.cpp:317                matching_test_case_s ] bid_usd.sell_price.to_real(): 5.00000000000000000 
+2246964ms th_a       optest.cpp:318                matching_test_case_s ] bid_usd.amount_for_sale() > match_price: false 
+2246964ms th_a       optest.cpp:321                matching_test_case_s ] usd_max_counter_size: 900 
+2246964ms th_a       optest.cpp:322                matching_test_case_s ] bid_usd.amount_for_sale(): {"amount":1500,"asset_id":"1.3.0"} 
+2246964ms th_a       optest.cpp:324                matching_test_case_s ] pay_refund: 600 
+2246964ms th_a       optest.cpp:455                test_method          ] bid_usd.amount_for_sale() > match_price: false 
+2246964ms th_a       optest.cpp:458                test_method          ] usd_max_counter_size: 12 
+2246964ms th_a       optest.cpp:459                test_method          ] bid_usd.amount_for_sale(): {"amount":21,"asset_id":"1.3.0"} 
+2246964ms th_a       optest.cpp:461                test_method          ] pay_refund: 9 
+2246964ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2246989ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:26"},"format":"","data":{}}]}
+2247009ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/1c2e-972b-b8de-c145 ...
+2247009ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247013ms th_a       account.cpp:101               is_valid_name        ] .
+2247013ms th_a       account.cpp:101               is_valid_name        ] .
+2247013ms th_a       account.cpp:114               is_valid_name        ] .
+2247013ms th_a       account.cpp:130               is_valid_name        ] .
+2247014ms th_a       account.cpp:101               is_valid_name        ] .
+2247014ms th_a       account.cpp:114               is_valid_name        ] .
+2247014ms th_a       account.cpp:101               is_valid_name        ] .
+2247014ms th_a       account.cpp:78                is_valid_name        ] .
+2247014ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247014ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247016ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247016ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247016ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247016ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247016ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":5000,"asset_id":"1.3.1"} 
+2247016ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":15000,"asset_id":"1.3.0"} 
+2247016ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247016ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247016ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 15.00000000000000000 
+2247016ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 50.00000000000000000 
+2247016ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 15.00000000000000000 
+2247016ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 100 
+2247016ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 1000 
+2247016ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 15000 
+2247016ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247016ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247016ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247016ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247016ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247016ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":1000,"asset_id":"1.3.1"} 
+2247016ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":15000,"asset_id":"1.3.0"} 
+2247016ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":15000,"asset_id":"1.3.0"} 
+2247016ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":1000,"asset_id":"1.3.1"} 
+2247016ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247016ms th_a       optest.cpp:494                test_method          ] *unmatched: {"id":"1.7.1","expiration":"1969-12-31T23:59:59","seller":"1.2.18","for_sale":4000,"sell_price":{"base":{"amount":5000,"asset_id":"1.3.1"},"quote":{"amount":100,"asset_id":"1.3.0"}},"deferred_fee":0} 
+2247017ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247040ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247059ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/771b-7e66-00d3-fcd0 ...
+2247059ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247063ms th_a       account.cpp:101               is_valid_name        ] .
+2247063ms th_a       account.cpp:101               is_valid_name        ] .
+2247064ms th_a       account.cpp:114               is_valid_name        ] .
+2247064ms th_a       account.cpp:130               is_valid_name        ] .
+2247064ms th_a       account.cpp:101               is_valid_name        ] .
+2247064ms th_a       account.cpp:114               is_valid_name        ] .
+2247064ms th_a       account.cpp:101               is_valid_name        ] .
+2247064ms th_a       account.cpp:78                is_valid_name        ] .
+2247064ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247065ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247066ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247066ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247066ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247066ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247066ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":8000,"asset_id":"1.3.0"} 
+2247066ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":1000,"asset_id":"1.3.1"} 
+2247066ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247066ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247066ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.33333333333333331 
+2247066ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 40.00000000000000000 
+2247066ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.33333333333333331 
+2247066ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 200 
+2247066ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 3000 
+2247066ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 1000 
+2247066ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247066ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247066ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247066ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247066ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 600 
+2247066ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":600,"asset_id":"1.3.0"} 
+2247066ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":200,"asset_id":"1.3.1"} 
+2247067ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":200,"asset_id":"1.3.1"} 
+2247067ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":600,"asset_id":"1.3.0"} 
+2247067ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 7400 
+2247067ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 7400 
+2247067ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247091ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247110ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/1509-46db-1f49-ebbf ...
+2247110ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247116ms th_a       account.cpp:101               is_valid_name        ] .
+2247116ms th_a       account.cpp:101               is_valid_name        ] .
+2247116ms th_a       account.cpp:114               is_valid_name        ] .
+2247116ms th_a       account.cpp:130               is_valid_name        ] .
+2247116ms th_a       account.cpp:101               is_valid_name        ] .
+2247116ms th_a       account.cpp:114               is_valid_name        ] .
+2247117ms th_a       account.cpp:101               is_valid_name        ] .
+2247117ms th_a       account.cpp:78                is_valid_name        ] .
+2247117ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247117ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247119ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: true 
+2247119ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247119ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247119ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247119ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":5000,"asset_id":"1.3.1"} 
+2247119ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":15000,"asset_id":"1.3.0"} 
+2247119ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247119ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247119ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 15.00000000000000000 
+2247119ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 50.00000000000000000 
+2247119ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 15.00000000000000000 
+2247119ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 100 
+2247119ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 1000 
+2247119ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 15000 
+2247119ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247119ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247119ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: true 
+2247119ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: false 
+2247119ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 6 
+2247119ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":6,"asset_id":"1.3.1"} 
+2247119ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":90,"asset_id":"1.3.0"} 
+2247119ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":90,"asset_id":"1.3.0"} 
+2247119ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":6,"asset_id":"1.3.1"} 
+2247119ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 4494 
+2247119ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 4994 
+2247119ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247146ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247173ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/5dac-0564-05a5-2f1f ...
+2247173ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247177ms th_a       account.cpp:101               is_valid_name        ] .
+2247177ms th_a       account.cpp:101               is_valid_name        ] .
+2247177ms th_a       account.cpp:114               is_valid_name        ] .
+2247177ms th_a       account.cpp:130               is_valid_name        ] .
+2247177ms th_a       account.cpp:101               is_valid_name        ] .
+2247178ms th_a       account.cpp:114               is_valid_name        ] .
+2247178ms th_a       account.cpp:101               is_valid_name        ] .
+2247178ms th_a       account.cpp:78                is_valid_name        ] .
+2247178ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247178ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247180ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: true 
+2247180ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247180ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247180ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247180ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":8000,"asset_id":"1.3.0"} 
+2247180ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":1000,"asset_id":"1.3.1"} 
+2247180ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247180ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247180ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.33333333333333331 
+2247180ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 40.00000000000000000 
+2247180ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.33333333333333331 
+2247180ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 200 
+2247180ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 3000 
+2247180ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 1000 
+2247180ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247180ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247180ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: true 
+2247180ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: false 
+2247180ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 0 
+2247180ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":3000,"asset_id":"1.3.0"} 
+2247180ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":1000,"asset_id":"1.3.1"} 
+2247180ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":1000,"asset_id":"1.3.1"} 
+2247180ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":3000,"asset_id":"1.3.0"} 
+2247180ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247180ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: true 
+2247180ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247180ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247180ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247180ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":5000,"asset_id":"1.3.0"} 
+2247181ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":1000,"asset_id":"1.3.1"} 
+2247181ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247181ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247181ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.25000000000000000 
+2247181ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 40.00000000000000000 
+2247181ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.25000000000000000 
+2247181ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 125 
+2247181ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 4000 
+2247181ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 1000 
+2247181ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247181ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247181ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: true 
+2247181ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: false 
+2247181ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 0 
+2247181ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":4000,"asset_id":"1.3.0"} 
+2247181ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":1000,"asset_id":"1.3.1"} 
+2247181ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":1000,"asset_id":"1.3.1"} 
+2247181ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":4000,"asset_id":"1.3.0"} 
+2247181ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247181ms th_a       optest.cpp:631                test_method          ] *unmatched: {"id":"1.7.2","expiration":"1969-12-31T23:59:59","seller":"1.2.17","for_sale":1000,"sell_price":{"base":{"amount":8000,"asset_id":"1.3.0"},"quote":{"amount":200,"asset_id":"1.3.1"}},"deferred_fee":0} 
+2247181ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247204ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247225ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/d5db-548c-feaa-3b6d ...
+2247225ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247229ms th_a       account.cpp:101               is_valid_name        ] .
+2247229ms th_a       account.cpp:101               is_valid_name        ] .
+2247229ms th_a       account.cpp:114               is_valid_name        ] .
+2247229ms th_a       account.cpp:130               is_valid_name        ] .
+2247230ms th_a       account.cpp:101               is_valid_name        ] .
+2247230ms th_a       account.cpp:114               is_valid_name        ] .
+2247230ms th_a       account.cpp:101               is_valid_name        ] .
+2247231ms th_a       account.cpp:78                is_valid_name        ] .
+2247231ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247231ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247233ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: true 
+2247233ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247233ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247233ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247233ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":1000,"asset_id":"1.3.0"} 
+2247233ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":10000,"asset_id":"1.3.1"} 
+2247233ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247233ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247233ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.33333333333333331 
+2247233ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 50.00000000000000000 
+2247233ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.33333333333333331 
+2247233ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 20 
+2247233ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 30000 
+2247233ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 10000 
+2247233ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247233ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247233ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: true 
+2247233ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: false 
+2247233ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 0 
+2247233ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":1000,"asset_id":"1.3.0"} 
+2247233ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":333,"asset_id":"1.3.1"} 
+2247233ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":333,"asset_id":"1.3.1"} 
+2247233ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":1000,"asset_id":"1.3.0"} 
+2247233ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247233ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 0 
+2247233ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247257ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247278ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/f4e8-3ce1-bb6d-eb48 ...
+2247279ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247283ms th_a       account.cpp:101               is_valid_name        ] .
+2247283ms th_a       account.cpp:101               is_valid_name        ] .
+2247283ms th_a       account.cpp:114               is_valid_name        ] .
+2247283ms th_a       account.cpp:130               is_valid_name        ] .
+2247283ms th_a       account.cpp:101               is_valid_name        ] .
+2247283ms th_a       account.cpp:114               is_valid_name        ] .
+2247284ms th_a       account.cpp:101               is_valid_name        ] .
+2247284ms th_a       account.cpp:78                is_valid_name        ] .
+2247284ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247284ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247286ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247286ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247286ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247286ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247286ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247286ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.0"} 
+2247286ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247286ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247286ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 1.00000000000000000 
+2247286ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 1.11111111111111116 
+2247286ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 1.00000000000000000 
+2247286ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 90 
+2247286ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247286ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247286ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247286ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247286ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247286ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247286ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247286ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247286ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.0"} 
+2247286ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.0"} 
+2247286ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247286ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247287ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247314ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247333ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/62ff-e1ab-bdaa-4f9e ...
+2247333ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247339ms th_a       account.cpp:101               is_valid_name        ] .
+2247339ms th_a       account.cpp:101               is_valid_name        ] .
+2247340ms th_a       account.cpp:114               is_valid_name        ] .
+2247340ms th_a       account.cpp:130               is_valid_name        ] .
+2247340ms th_a       account.cpp:101               is_valid_name        ] .
+2247340ms th_a       account.cpp:114               is_valid_name        ] .
+2247340ms th_a       account.cpp:101               is_valid_name        ] .
+2247340ms th_a       account.cpp:78                is_valid_name        ] .
+2247341ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247341ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247342ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247342ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247342ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247342ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247342ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":11,"asset_id":"1.3.1"} 
+2247342ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":150,"asset_id":"1.3.0"} 
+2247342ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247342ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247342ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 1.50000000000000000 
+2247342ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 2.20000000000000018 
+2247342ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 1.50000000000000000 
+2247342ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 5 
+2247342ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247342ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 150 
+2247343ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247343ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247343ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247343ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247343ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247343ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":11,"asset_id":"1.3.1"} 
+2247343ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":16,"asset_id":"1.3.0"} 
+2247343ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":16,"asset_id":"1.3.0"} 
+2247343ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":11,"asset_id":"1.3.1"} 
+2247343ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247343ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 0 
+2247343ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247372ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247392ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/1098-2029-6d43-22c6 ...
+2247392ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247398ms th_a       account.cpp:101               is_valid_name        ] .
+2247398ms th_a       account.cpp:101               is_valid_name        ] .
+2247399ms th_a       account.cpp:114               is_valid_name        ] .
+2247399ms th_a       account.cpp:130               is_valid_name        ] .
+2247399ms th_a       account.cpp:101               is_valid_name        ] .
+2247399ms th_a       account.cpp:114               is_valid_name        ] .
+2247399ms th_a       account.cpp:101               is_valid_name        ] .
+2247399ms th_a       account.cpp:78                is_valid_name        ] .
+2247400ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247400ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247401ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247401ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247401ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247401ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247401ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":15,"asset_id":"1.3.0"} 
+2247401ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247401ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247401ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247401ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 1.25000000000000000 
+2247401ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 1.36363636363636354 
+2247401ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 1.25000000000000000 
+2247401ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 11 
+2247401ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 80 
+2247401ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247401ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247401ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247401ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247401ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247401ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 8 
+2247401ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":8,"asset_id":"1.3.0"} 
+2247401ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":10,"asset_id":"1.3.1"} 
+2247401ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":10,"asset_id":"1.3.1"} 
+2247401ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":8,"asset_id":"1.3.0"} 
+2247401ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 5 
+2247401ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 7 
+2247402ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247426ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247446ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/faa3-b16d-a5d1-a218 ...
+2247446ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247449ms th_a       account.cpp:101               is_valid_name        ] .
+2247449ms th_a       account.cpp:101               is_valid_name        ] .
+2247450ms th_a       account.cpp:114               is_valid_name        ] .
+2247450ms th_a       account.cpp:130               is_valid_name        ] .
+2247450ms th_a       account.cpp:101               is_valid_name        ] .
+2247450ms th_a       account.cpp:114               is_valid_name        ] .
+2247450ms th_a       account.cpp:101               is_valid_name        ] .
+2247451ms th_a       account.cpp:78                is_valid_name        ] .
+2247451ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247451ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247454ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247454ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247454ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":300,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":400,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247454ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 4.00000000000000000 
+2247454ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 0.50000000000000000 
+2247454ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 4.00000000000000000 
+2247454ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 600 
+2247454ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247454ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 400 
+2247454ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: false 
+2247454ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247454ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247454ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247454ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247454ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":400,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":400,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247454ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247454ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247454ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":200,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":300,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247454ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247454ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 3.00000000000000000 
+2247454ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 0.50000000000000000 
+2247454ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 3.00000000000000000 
+2247454ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 400 
+2247454ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247454ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 300 
+2247454ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: false 
+2247454ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247454ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247454ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247454ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247454ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":300,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":300,"asset_id":"1.3.0"} 
+2247454ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247454ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247455ms th_a       optest.cpp:860                test_method          ] *unmatched: {"id":"1.7.2","expiration":"1969-12-31T23:59:59","seller":"1.2.18","for_sale":100,"sell_price":{"base":{"amount":300,"asset_id":"1.3.1"},"quote":{"amount":600,"asset_id":"1.3.0"}},"deferred_fee":0} 
+2247455ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247482ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247504ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/39ae-2d1a-b35f-c552 ...
+2247504ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247511ms th_a       account.cpp:101               is_valid_name        ] .
+2247511ms th_a       account.cpp:101               is_valid_name        ] .
+2247511ms th_a       account.cpp:114               is_valid_name        ] .
+2247511ms th_a       account.cpp:130               is_valid_name        ] .
+2247511ms th_a       account.cpp:101               is_valid_name        ] .
+2247512ms th_a       account.cpp:114               is_valid_name        ] .
+2247512ms th_a       account.cpp:101               is_valid_name        ] .
+2247512ms th_a       account.cpp:78                is_valid_name        ] .
+2247512ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247512ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247514ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247514ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247514ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":300,"asset_id":"1.3.1"} 
+2247514ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":50,"asset_id":"1.3.0"} 
+2247514ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247514ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.50000000000000000 
+2247514ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 6.00000000000000000 
+2247514ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.50000000000000000 
+2247514ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 50 
+2247514ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247514ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 50 
+2247514ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247514ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247514ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247514ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247514ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247514ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247514ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":50,"asset_id":"1.3.0"} 
+2247514ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":50,"asset_id":"1.3.0"} 
+2247514ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247514ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247514ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247514ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.0 
+2247514ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":200,"asset_id":"1.3.1"} 
+2247514ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":25,"asset_id":"1.3.0"} 
+2247514ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.0 
+2247514ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247514ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.25000000000000000 
+2247514ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 6.00000000000000000 
+2247514ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.25000000000000000 
+2247514ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 33 
+2247514ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247514ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 25 
+2247514ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247514ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247514ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247514ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247515ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247515ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247515ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":25,"asset_id":"1.3.0"} 
+2247515ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":25,"asset_id":"1.3.0"} 
+2247515ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247515ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247515ms th_a       optest.cpp:909                test_method          ] *unmatched: {"id":"1.7.2","expiration":"1969-12-31T23:59:59","seller":"1.2.18","for_sale":100,"sell_price":{"base":{"amount":300,"asset_id":"1.3.1"},"quote":{"amount":50,"asset_id":"1.3.0"}},"deferred_fee":0} 
+2247515ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247538ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247563ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/89b6-4043-fcb6-f565 ...
+2247563ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247567ms th_a       account.cpp:101               is_valid_name        ] .
+2247567ms th_a       account.cpp:101               is_valid_name        ] .
+2247567ms th_a       account.cpp:114               is_valid_name        ] .
+2247567ms th_a       account.cpp:130               is_valid_name        ] .
+2247567ms th_a       account.cpp:101               is_valid_name        ] .
+2247568ms th_a       account.cpp:114               is_valid_name        ] .
+2247568ms th_a       account.cpp:101               is_valid_name        ] .
+2247568ms th_a       account.cpp:78                is_valid_name        ] .
+2247568ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247568ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247570ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247570ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247570ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":275,"asset_id":"1.3.0"} 
+2247570ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247570ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247570ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 4.00000000000000000 
+2247570ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 0.91666666666666663 
+2247570ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 4.00000000000000000 
+2247570ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 300 
+2247570ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 25 
+2247570ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247570ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: false 
+2247570ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247570ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247570ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247570ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 75 
+2247570ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":25,"asset_id":"1.3.0"} 
+2247570ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247570ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247570ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":25,"asset_id":"1.3.0"} 
+2247570ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 66 
+2247570ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247570ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247570ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":184,"asset_id":"1.3.0"} 
+2247570ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247570ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247570ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247570ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 2.00000000000000000 
+2247570ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 0.91666666666666663 
+2247570ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 2.00000000000000000 
+2247570ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 200 
+2247570ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 50 
+2247570ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247571ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: false 
+2247571ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247571ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247571ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247571ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 100 
+2247571ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":50,"asset_id":"1.3.0"} 
+2247571ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247571ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247571ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":50,"asset_id":"1.3.0"} 
+2247571ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 41 
+2247571ms th_a       optest.cpp:957                test_method          ] *unmatched: {"id":"1.7.2","expiration":"1969-12-31T23:59:59","seller":"1.2.17","for_sale":93,"sell_price":{"base":{"amount":275,"asset_id":"1.3.0"},"quote":{"amount":300,"asset_id":"1.3.1"}},"deferred_fee":0} 
+2247571ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247619ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247643ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/c696-11f7-db4b-4045 ...
+2247643ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247658ms th_a       account.cpp:101               is_valid_name        ] .
+2247658ms th_a       account.cpp:101               is_valid_name        ] .
+2247658ms th_a       account.cpp:114               is_valid_name        ] .
+2247658ms th_a       account.cpp:130               is_valid_name        ] .
+2247658ms th_a       account.cpp:101               is_valid_name        ] .
+2247659ms th_a       account.cpp:114               is_valid_name        ] .
+2247659ms th_a       account.cpp:101               is_valid_name        ] .
+2247659ms th_a       account.cpp:78                is_valid_name        ] .
+2247659ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247659ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247661ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247661ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247661ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247661ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247661ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":1500,"asset_id":"1.3.0"} 
+2247661ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247661ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247661ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247661ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.33333333333333331 
+2247662ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 5.00000000000000000 
+2247662ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.33333333333333331 
+2247662ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 300 
+2247662ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 300 
+2247662ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247662ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247662ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247662ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247662ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247662ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 900 
+2247662ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":300,"asset_id":"1.3.0"} 
+2247662ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247662ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247662ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":300,"asset_id":"1.3.0"} 
+2247662ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 200 
+2247662ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247662ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247662ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247662ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247662ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":1000,"asset_id":"1.3.0"} 
+2247662ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247662ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247662ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247662ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.25000000000000000 
+2247662ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 5.00000000000000000 
+2247662ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.25000000000000000 
+2247662ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 200 
+2247662ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 400 
+2247662ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247662ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247662ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247662ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247662ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247662ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 800 
+2247662ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":400,"asset_id":"1.3.0"} 
+2247662ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247662ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247662ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":400,"asset_id":"1.3.0"} 
+2247662ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 100 
+2247662ms th_a       optest.cpp:1004               test_method          ] *unmatched: {"id":"1.7.2","expiration":"1969-12-31T23:59:59","seller":"1.2.17","for_sale":500,"sell_price":{"base":{"amount":1500,"asset_id":"1.3.0"},"quote":{"amount":300,"asset_id":"1.3.1"}},"deferred_fee":0} 
+2247662ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247693ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247719ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/081f-2408-8252-e2f3 ...
+2247719ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247723ms th_a       account.cpp:101               is_valid_name        ] .
+2247723ms th_a       account.cpp:101               is_valid_name        ] .
+2247723ms th_a       account.cpp:114               is_valid_name        ] .
+2247723ms th_a       account.cpp:130               is_valid_name        ] .
+2247723ms th_a       account.cpp:101               is_valid_name        ] .
+2247723ms th_a       account.cpp:114               is_valid_name        ] .
+2247724ms th_a       account.cpp:101               is_valid_name        ] .
+2247724ms th_a       account.cpp:78                is_valid_name        ] .
+2247724ms th_a       account.cpp:90                is_valid_name        ] name: aaaa. end: 5 len: 5 begin: 5 63: 63 
+2247724ms th_a       account.cpp:90                is_valid_name        ] name: .aaaa end: 0 len: 5 begin: 0 63: 63 
+2247726ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247727ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247727ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":300,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247727ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 1.00000000000000000 
+2247727ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 2.00000000000000000 
+2247727ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 1.00000000000000000 
+2247727ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 150 
+2247727ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 100 
+2247727ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247727ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247727ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247727ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247727ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247727ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 150 
+2247727ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":100,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":100,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 100 
+2247727ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell: false 
+2247727ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247727ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":100,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":100,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247727ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.0 
+2247727ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.50000000000000000 
+2247727ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 2.00000000000000000 
+2247727ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.50000000000000000 
+2247727ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 50 
+2247727ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 200 
+2247727ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 100 
+2247727ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247727ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247727ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247727ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247727ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 100 
+2247727ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":100,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":50,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":50,"asset_id":"1.3.1"} 
+2247727ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":100,"asset_id":"1.3.0"} 
+2247727ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247727ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 0 
+2247727ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247762ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247783ms th_a       object_database.cpp:94        open                 ] Opening object database from /tmp/graphene-tmp/2806-4f28-1153-6608 ...
+2247783ms th_a       object_database.cpp:100       open                 ] Done opening object database.
+2247785ms th_a       optest.cpp:1191               test_method          ] usd_max_counter_size: 12 
+2247785ms th_a       optest.cpp:1192               test_method          ] usd_for_sale: {"amount":12,"asset_id":"1.3.1"} 
+2247785ms th_a       optest.cpp:1194               test_method          ] core_max_counter_size: 80 
+2247785ms th_a       optest.cpp:1195               test_method          ] core_for_sale: {"amount":80,"asset_id":"1.3.2"} 
+2247785ms th_a       optest.cpp:1197               test_method          ] ask_core: {"id":"0.0.0","expiration":"1970-01-01T00:00:00","seller":"1.2.17","for_sale":80,"sell_price":{"base":{"amount":80,"asset_id":"1.3.2"},"quote":{"amount":480,"asset_id":"1.3.1"}},"deferred_fee":0} 
+2247785ms th_a       optest.cpp:1198               test_method          ] bid_usd: {"id":"0.0.0","expiration":"1970-01-01T00:00:00","seller":"1.2.16","for_sale":21,"sell_price":{"base":{"amount":21,"asset_id":"1.3.1"},"quote":{"amount":2,"asset_id":"1.3.2"}},"deferred_fee":0} 
+2247785ms th_a       optest.cpp:1199               test_method          ] match_price: {"base":{"amount":80,"asset_id":"1.3.2"},"quote":{"amount":480,"asset_id":"1.3.1"}} 
+2247785ms th_a       optest.cpp:1218               test_method          ] core_receives: {"amount":12,"asset_id":"1.3.1"} 
+2247785ms th_a       optest.cpp:1219               test_method          ] usd_receives: {"amount":2,"asset_id":"1.3.2"} 
+2247786ms th_a       optest.cpp:1220               test_method          ] core_pays: {"amount":2,"asset_id":"1.3.2"} 
+2247786ms th_a       optest.cpp:1221               test_method          ] usd_pays: {"amount":12,"asset_id":"1.3.1"} 
+2247786ms th_a       optest.cpp:1233               test_method          ] bid_usd: {"id":"0.0.0","expiration":"1970-01-01T00:00:00","seller":"1.2.16","for_sale":0,"sell_price":{"base":{"amount":21,"asset_id":"1.3.1"},"quote":{"amount":2,"asset_id":"1.3.2"}},"deferred_fee":0} 
+2247786ms th_a       optest.cpp:1234               test_method          ] ask_core: {"id":"0.0.0","expiration":"1970-01-01T00:00:00","seller":"1.2.17","for_sale":78,"sell_price":{"base":{"amount":80,"asset_id":"1.3.2"},"quote":{"amount":480,"asset_id":"1.3.1"}},"deferred_fee":0} 
+2247786ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell:  
+2247786ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.3 
+2247786ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247786ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.3 
+2247786ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":950,"asset_id":"1.3.3"} 
+2247786ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":925,"asset_id":"1.3.1"} 
+2247786ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247786ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.3 
+2247786ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 925.00000000000000000 
+2247786ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 950.00000000000000000 
+2247786ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 925.00000000000000000 
+2247786ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 1 
+2247786ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 1 
+2247786ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 925 
+2247786ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247786ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247786ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247786ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247786ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247786ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":1,"asset_id":"1.3.3"} 
+2247786ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":925,"asset_id":"1.3.1"} 
+2247786ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":925,"asset_id":"1.3.1"} 
+2247786ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":1,"asset_id":"1.3.3"} 
+2247786ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247786ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell:  
+2247786ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247786ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.2 
+2247786ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247786ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":17,"asset_id":"1.3.1"} 
+2247786ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":80,"asset_id":"1.3.2"} 
+2247786ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.2 
+2247786ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247786ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.16666666666666666 
+2247786ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 8.50000000000000000 
+2247786ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.16666666666666666 
+2247786ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 2 
+2247786ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 480 
+2247786ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 80 
+2247786ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247786ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247786ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247786ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247786ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 12 
+2247786ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":12,"asset_id":"1.3.1"} 
+2247786ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":2,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":2,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":12,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 5 
+2247787ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 5 
+2247787ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell:  
+2247787ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.1 
+2247787ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.2 
+2247787ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.1 
+2247787ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":21,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":78,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.2 
+2247787ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.1 
+2247787ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 0.16666666666666666 
+2247787ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 10.50000000000000000 
+2247787ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 0.16666666666666666 
+2247787ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 2 
+2247787ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 480 
+2247787ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 80 
+2247787ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: true 
+2247787ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: false 
+2247787ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247787ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247787ms th_a       db_market.cpp:272             rounded_match        ] core_max_counter_size: 12 
+2247787ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":12,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":2,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":2,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":12,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 9 
+2247787ms th_a       db_market.cpp:314             rounded_match        ] pay_refund: 9 
+2247787ms th_a       db_market.cpp:222             rounded_match        ] get_order_flags.isCoreBuySell:  
+2247787ms th_a       db_market.cpp:234             rounded_match        ] usd.sell_price.base.asset_id: 1.3.2 
+2247787ms th_a       db_market.cpp:235             rounded_match        ] usd.sell_price.quote.asset_id: 1.3.1 
+2247787ms th_a       db_market.cpp:236             rounded_match        ] usd.amount_for_sale().asset_id: 1.3.2 
+2247787ms th_a       db_market.cpp:237             rounded_match        ] usd.amount_for_sale(): {"amount":5,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:238             rounded_match        ] core.amount_for_sale(): {"amount":20,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:239             rounded_match        ] core.sell_price.base.asset_id: 1.3.1 
+2247787ms th_a       db_market.cpp:240             rounded_match        ] core.sell_price.quote.asset_id: 1.3.2 
+2247787ms th_a       db_market.cpp:241             rounded_match        ] real_match_price: 5.00000000000000000 
+2247787ms th_a       db_market.cpp:242             rounded_match        ] real_order_price: 0.25000000000000000 
+2247787ms th_a       db_market.cpp:243             rounded_match        ] real_book_price: 5.00000000000000000 
+2247787ms th_a       db_market.cpp:244             rounded_match        ] usd.amount_to_receive().amount.value: 20 
+2247787ms th_a       db_market.cpp:245             rounded_match        ] core.sell_price.quote.amount.value: 4 
+2247787ms th_a       db_market.cpp:246             rounded_match        ] core.sell_price.base.amount.value: 20 
+2247787ms th_a       db_market.cpp:247             rounded_match        ] real_order_price > real_book_price: false 
+2247787ms th_a       db_market.cpp:248             rounded_match        ] usd.amount_for_sale() > match_price: true 
+2247787ms th_a       db_market.cpp:249             rounded_match        ] isCoreBuySell: false 
+2247787ms th_a       db_market.cpp:250             rounded_match        ] isTestBuySell: true 
+2247787ms th_a       db_market.cpp:263             rounded_match        ] usd_max_counter_size: 0 
+2247787ms th_a       db_market.cpp:296             rounded_match        ] usd_pays: {"amount":4,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:297             rounded_match        ] core_pays: {"amount":20,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:298             rounded_match        ] usd_receives: {"amount":20,"asset_id":"1.3.1"} 
+2247787ms th_a       db_market.cpp:299             rounded_match        ] core_receives: {"amount":4,"asset_id":"1.3.2"} 
+2247787ms th_a       db_market.cpp:309             rounded_match        ] pay_refund: 0 
+2247787ms th_a       optest.cpp:1264               test_method          ] done!
+2247788ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":10,"name":"assert_exception","message":"Assert Exception","stack":[{"context":{"level":"error","file":"fork_database.cpp","line":41,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"_head: no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+2247817ms th_a       db_management.cpp:170         close                ] Database close unexpected exception: {"code":3070001,"name":"pop_empty_chain","message":"there are no blocks to pop","stack":[{"context":{"level":"error","file":"db_block.cpp","line":423,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"there are no blocks to pop","data":{}},{"context":{"level":"warn","file":"db_block.cpp","line":431,"method":"pop_block","hostname":"","thread_name":"th_a","timestamp":"2017-08-17T05:37:27"},"format":"","data":{}}]}
+Running 19 test cases...
+
+*** No errors detected
