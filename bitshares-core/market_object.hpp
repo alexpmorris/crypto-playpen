@@ -57,7 +57,7 @@ class limit_order_object : public abstract_object<limit_order_object>
       price            sell_price;
       share_type       deferred_fee;
 
-	   extension<graphene::chain::limit_order_create_operation::limit_order_flags> extensions;
+      graphene::chain::limit_order_create_operation::limit_order_flags extensions;
 
       pair<asset_id_type,asset_id_type> get_market()const
       {
