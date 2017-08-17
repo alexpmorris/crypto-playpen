@@ -205,11 +205,11 @@ bool database::apply_order(const limit_order_object& new_order_object, bool allo
 
 // addition by APM, for proper matched rounding of taker orders
 template<typename OrderType>
-int rounded_match( database& db, const limit_order_object& usd, const OrderType& core, const price& match_price,
+int database::rounded_match( const limit_order_object& usd, const OrderType& core, const price& match_price,
 								 asset& usd_pays, asset& usd_receives, asset& core_pays, asset& core_receives) 
 {
-	fc::safe<long int> usd_max_counter_size = 0;
-	fc::safe<long int> core_max_counter_size = 0;
+	share_type usd_max_counter_size = 0;
+	share_type core_max_counter_size = 0;
     auto usd_for_sale = usd.amount_for_sale();
     auto core_for_sale = core.amount_for_sale();
 
@@ -218,15 +218,15 @@ int rounded_match( database& db, const limit_order_object& usd, const OrderType&
 	bool isCoreBuySell = false;
 	bool isTestBuySell = false;
 	graphene::chain::limit_order_create_operation::limit_order_flags get_order_flags;
-	get_order_flags = usd.extensions.value;
+	get_order_flags = usd.extensions;
 idump((get_order_flags.isCoreBuySell));
 	if (get_order_flags.isCoreBuySell && get_order_flags.isCoreBuySell.valid()) {
 		if (*get_order_flags.isCoreBuySell) isCoreBuySell = true; else 
 			isTestBuySell = true;
-	} else isTestBuySell = true;  //set default behavior to isTestBuySell == true
+	} // default behavior is no action, ie. isTestBuySell == false, isCoreBuySell == false
 	
-	bool order_price_greater_than_book_price = usd.amount_for_sale() > match_price;
-	bool order_price_less_than_book_price = usd.amount_for_sale() < match_price;
+	bool order_size_greater_than_book_size = usd.amount_for_sale() > match_price;
+	bool order_size_less_than_book_size = usd.amount_for_sale() < match_price;
 
 	   double real_match_price = match_price.to_real();
 	   double real_order_price = usd.sell_price.to_real();
@@ -245,11 +245,14 @@ idump((get_order_flags.isCoreBuySell));
 		 idump((core.sell_price.quote.amount.value));
 		 idump((core.sell_price.base.amount.value));
 		 idump((real_order_price > real_book_price));
+		 idump((order_size_greater_than_book_size));
 		 idump((usd.amount_for_sale() > match_price));
+		 idump((order_size_less_than_book_size));
+		 idump((usd.amount_for_sale() < match_price));
 		 idump((isCoreBuySell));
 		 idump((isTestBuySell));
 
-	if (order_price_greater_than_book_price) {
+	if (order_size_greater_than_book_size) {
 		  if (isCoreBuySell) {
 			  usd_max_counter_size = (usd.amount_to_receive().amount.value * core.sell_price.quote.amount.value)/core.sell_price.base.amount.value;
 			   if (usd_max_counter_size < usd_for_sale.amount) {
@@ -262,7 +265,7 @@ idump((get_order_flags.isCoreBuySell));
 		   }*/		
 idump((usd_max_counter_size));
 	}
-	if (order_price_less_than_book_price) {
+	if (order_size_less_than_book_size) {
 		if (isTestBuySell) {
 		   core_max_counter_size = (usd.amount_to_receive().amount.value * core.sell_price.quote.amount.value)/core.sell_price.base.amount.value;
 		   if (core_max_counter_size < usd_for_sale.amount) {
@@ -298,12 +301,12 @@ idump((core_pays));
 idump((usd_receives));
 idump((core_receives));
 
-   fc::safe<long int> pay_refund = 0;
+   share_type pay_refund = 0;
    if (isTestBuySell || isCoreBuySell) {
-		if (order_price_greater_than_book_price) {
+		if (order_size_greater_than_book_size) {
 		   if (isCoreBuySell) pay_refund = (usd_receives * usd.sell_price).amount.value - core_receives.amount.value;
 		}
-		if (order_price_less_than_book_price) {
+		if (order_size_less_than_book_size) {
 		   if (isTestBuySell) pay_refund = ((usd_receives.amount.value * usd.sell_price.base.amount.value)/usd.sell_price.quote.amount.value) - core_receives.amount.value;
 		}
 		 idump((pay_refund));
@@ -316,6 +319,7 @@ idump((core_receives));
    if (pay_refund > 0) {
 		asset refunded = asset(pay_refund,usd_pays.asset_id);
 
+		database& db = (database &)*this;
 		db.modify( usd.seller(db).statistics(db),[&]( account_statistics_object& obj ){
 		  if( refunded.asset_id == asset_id_type() )
 		  {
@@ -355,8 +359,8 @@ int database::match( const limit_order_object& usd, const OrderType& core, const
 
    asset usd_pays, usd_receives, core_pays, core_receives;
 
-   database& db = ((database &)*this);
-   rounded_match(db, usd, core, match_price, usd_pays, usd_receives, core_pays, core_receives);
+   //APM
+   rounded_match(usd, core, match_price, usd_pays, usd_receives, core_pays, core_receives);
 
    assert( usd_pays == usd.amount_for_sale() ||
            core_pays == core.amount_for_sale() );
@@ -406,82 +410,6 @@ asset database::match( const call_order_object& call,
 
    return call_receives;
 } FC_CAPTURE_AND_RETHROW( (call)(settle)(match_price)(max_settlement) ) }
-
-//to use, add reference to database.hpp
-bool database::fill_order_rounded( const limit_order_object& order, const asset& pays, const asset& receives, bool cull_if_small, fc::safe<long int> pay_refund )
-{ try {
-   cull_if_small |= (head_block_time() < HARDFORK_555_TIME);
-
-   FC_ASSERT( order.amount_for_sale().asset_id == pays.asset_id );
-   FC_ASSERT( pays.asset_id != receives.asset_id );
-
-   const account_object& seller = order.seller(*this);
-   const asset_object& recv_asset = receives.asset_id(*this);
-
-   auto issuer_fees = pay_market_fees( recv_asset, receives );
-   pay_order( seller, receives - issuer_fees, pays );
-
-   assert( pays.asset_id != receives.asset_id );
-   push_applied_operation( fill_order_operation( order.id, order.seller, pays, receives, issuer_fees ) );
-
-   // conditional because cheap integer comparison may allow us to avoid two expensive modify() and object lookups
-   if( order.deferred_fee > 0 )
-   {
-      modify( seller.statistics(*this), [&]( account_statistics_object& statistics )
-      {
-         statistics.pay_fee( order.deferred_fee, get_global_properties().parameters.cashback_vesting_threshold );
-      } );
-   }
-
-	//APM
-	   asset rawPays = pays;  //pays is const
-	   if (pay_refund > 0) {
-		   asset refunded = asset(pay_refund,pays.asset_id);
-		   adjust_balance(order.seller, refunded);
-		   rawPays.amount += pay_refund;
-	   }
-	   /*uble real_taker_price = order.sell_price.to_real();
-	     limit_order_object fill;
-	     fill.sell_price = price(asset(pays.amount.value,pays.asset_id), asset(receives.amount.value,receives.asset_id));
-	     double real_fill_price = fill.sell_price.to_real();
-	   int64_t taker_over_pay = round(receives.amount.value * real_taker_price) - pays.amount.value;
-	     idump((real_taker_price));
-		 idump((real_fill_price));
-		 idump((taker_over_pay));
-	   asset rawPays = pays;  //pays is const
-	   if ((real_taker_price > 1) && (taker_over_pay > 0)) {
-		   asset refunded = asset(taker_over_pay,pays.asset_id);
-		   adjust_balance(order.seller, refunded);
-		   rawPays.amount += taker_over_pay;
-	   }*/
-	   /*if ((real_taker_price > 1) && (taker_over_pay > 0)) {
-          modify( order, [&]( limit_order_object& b ) {
-                             b.for_sale -= rawPays.amount;
-                             b.deferred_fee = 0;
-                          });
-		  ((database &)*this).cancel_order(order);
-		  ilog("canceled balance of order");
-		  return true;
-		}*/
-	//APM
-
-   if( rawPays == order.amount_for_sale() )
-   {
-      remove( order );
-      return true;
-   }
-   else
-   {
-      modify( order, [&]( limit_order_object& b ) {
-                             b.for_sale -= rawPays.amount;
-                             b.deferred_fee = 0;
-                          });
-      if( cull_if_small )
-         return maybe_cull_small_order( *this, order );
-      return false;
-   }
-} FC_CAPTURE_AND_RETHROW( (order)(pays)(receives) ) }
-
 
 bool database::fill_order( const limit_order_object& order, const asset& pays, const asset& receives, bool cull_if_small )
 { try {
