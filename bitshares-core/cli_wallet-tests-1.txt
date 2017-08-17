@@ -61,8 +61,54 @@ cancel_order 1.7.106 true
 cancel_order 1.7.107 true
 cancel_order 1.7.108 true
 
+get_limit_orders TEST BTS 100
+
 
 (BTS/TEST or TEST:BTS, isCoreBuySell = false)
 (TEST/BTS or BTS:TEST, isCoreBuySell = true)
 
 sell_asset nathan 5000 BTS 10000 TEST 100000 false true  
+
+
+
+sell_asset nathan 1000 BTS 4000 TEST 100000 false true
+sell_asset nathan 1000 BTS 3000 TEST 100000 false true
+sell_asset nathan 8000 TEST 200 BTS 100000 false true
+
+sell_asset nathan 15000 BTS 1000 TEST 100000 false true
+sell_asset nathan 5000 TEST 100 BTS 100000 false true
+
+sell_asset nathan 1000 TEST 4000 BTS 100000 false true
+sell_asset nathan 1000 TEST 3000 BTS 100000 false true
+sell_asset nathan 8000 BTS 200 TEST 100000 false true
+
+sell_asset nathan 50 BTS 100 TEST 100000 false true
+sell_asset nathan 100 BTS 100 TEST 100000 false true
+sell_asset nathan 100 TEST 90 BTS 100000 false true
+
+sell_asset nathan 25 BTS 100 TEST 100000 false true
+sell_asset nathan 50 BTS 100 TEST 100000 false true
+sell_asset nathan 300 TEST 50 BTS 100000 false true
+
+sell_asset nathan 100 TEST 25 BTS 100000 false true
+sell_asset nathan 100 TEST 50 BTS 100000 false true
+sell_asset nathan 275 BTS 300 TEST 100000 false true
+
+sell_asset nathan 150 BTS 100 TEST 100000 false true
+sell_asset nathan 11 TEST 5 BTS 100000 false true
+
+sell_asset nathan 100 TEST 80 BTS 100000 false true
+sell_asset nathan 15 BTS 11 TEST 100000 false true
+
+sell_asset nathan 100 TEST 25 BTS 100000 false true
+sell_asset nathan 100 TEST 50 BTS 100000 false true
+sell_asset nathan 275 BTS 300 TEST 100000 false true
+
+sell_asset nathan 1000 TEST 4000 BTS 100000 false true
+sell_asset nathan 1000 TEST 3000 BTS 100000 false true
+sell_asset nathan 8000 BTS 200 TEST 100000 false true
+
+sell_asset nathan 100 TEST 100 BTS 100000 false true
+sell_asset nathan 100 TEST 200 BTS 100000 false true
+sell_asset nathan 100 TEST 300 BTS 100000 false true
+sell_asset nathan 300 BTS 150 TEST 100000 false true
