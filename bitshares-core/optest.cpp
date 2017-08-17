@@ -279,16 +279,11 @@ const limit_order_object* create_sell_order_with_ext( database& db, signed_trans
    buy_order.amount_to_sell = amount;
    buy_order.min_to_receive = recv;
 
-   if (isCoreBuySell) {
-	 extension<graphene::chain::limit_order_create_operation::order_ext> ext;
-	 bool_order_flags order_flags;
-	 order_flags.isCoreBuySell = +1;
-	 sv_order_flags sv_flags;
-	 sv_flags = order_flags;
-	 ext.value.order_flags = sv_flags;
-	 buy_order.extensions = ext;
-   }
-   idump((buy_order.extensions));
+	graphene::chain::limit_order_create_operation::limit_order_flags order_flags;
+	order_flags.isCoreBuySell = isCoreBuySell;
+	extension<graphene::chain::limit_order_create_operation::limit_order_flags> ext;
+	ext.value = order_flags;
+	buy_order.extensions = ext;
 
    trx.operations.push_back(buy_order);
    for( auto& op : trx.operations ) db.current_fee_schedule().set_fee(op);
@@ -360,17 +355,15 @@ void matching_test_case_buy_sell(const asset_object&   core_asset, const asset_o
 BOOST_AUTO_TEST_CASE( rounded_match_test_cases )
 { try {
    INVOKE( issue_uia );
-    const asset_object&   core_asset     = get_asset( "TEST" );
-    const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
     const account_object& nathan_account = get_account( "nathan" );
     const account_object& buyer_account  = create_account( "buyer" );
     const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 100000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(100000) );
-   auto order = create_sell_order_with_ext( db, trx, seller_account, core_asset.amount(15000), test_asset.amount(1000), true );
-
-   idump (( order->isCoreBuySell ));
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
+   //auto order = create_sell_order_with_ext( db, trx, seller_account, core_asset.amount(15000), test_asset.amount(1000), true );
 
 	/*struct order_ext {
 	  optional<bool> isCoreBuySell;
@@ -381,7 +374,7 @@ BOOST_AUTO_TEST_CASE( rounded_match_test_cases )
    limit_order_create_operation op;
    //op.extensions.insert(ext);
    op.extensions = ext;*/
-	extension<graphene::chain::limit_order_create_operation::order_ext> ext;
+   /*	extension<graphene::chain::limit_order_create_operation::order_ext> ext;
     limit_order_create_operation op;
 	bool_order_flags order_flags;
 	order_flags.isCoreBuySell = +1;
@@ -393,7 +386,23 @@ BOOST_AUTO_TEST_CASE( rounded_match_test_cases )
 	idump((op.extensions));
 	idump((op.extensions.value.order_flags));
 	fc::optional<fc::static_variant<graphene::chain::bool_order_flags>> get_ext = op.extensions.value.order_flags;
-	idump((get_ext));
+	idump((get_ext));*/
+
+    limit_order_create_operation op;
+	graphene::chain::limit_order_create_operation::limit_order_flags order_flags;
+	order_flags.isCoreBuySell = false;
+	extension<graphene::chain::limit_order_create_operation::limit_order_flags> ext;
+	ext.value = order_flags;
+	op.extensions = ext;
+	idump((op.extensions));
+	graphene::chain::limit_order_create_operation::limit_order_flags get_order_flags;
+	get_order_flags = op.extensions.value;
+	idump((get_order_flags));
+	idump((get_order_flags.isCoreBuySell));
+	if (get_order_flags.isCoreBuySell.valid()) {
+		idump((get_order_flags.isCoreBuySell));
+		if (*get_order_flags.isCoreBuySell == false) ilog("orderFlagFalse"); else ilog("orderFlagTrue");
+	}
 	
 	//idump((*get_ext->isCoreBuySell));
 	//get_ext = [0,{"isCoreBuySell":1}]
@@ -460,42 +469,42 @@ BOOST_AUTO_TEST_CASE( rounded_match_test_cases )
  }
 }
 
-BOOST_AUTO_TEST_CASE( taker_sells_overpays_huge_lot )
+BOOST_AUTO_TEST_CASE( taker_sells_overpays_huge_lot_isTestBuySell )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 100000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(100000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 100000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 100000 );
 
-   limit_order_id_type first_id  = create_sell_order( seller_account, core_asset.amount(15000), test_asset.amount(1000) )->id;
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(15000), test_asset.amount(1000) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 85000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 85000 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( buyer_account, test_asset.amount(5000), core_asset.amount(100) );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(5000), core_asset.amount(100) , false );
    //print_market( "", "" );
-   BOOST_CHECK( db.find( first_id ) );
+   BOOST_CHECK( !db.find( first_id ) );
    if( unmatched ) wdump((*unmatched));
-   BOOST_CHECK( !unmatched );
+   BOOST_CHECK( unmatched );
 
    //APM
-   //sell_asset nathan 15000 BTS 1000 TEST 100000 false true    <-- seller BUY 1000 TEST @ 15.00 (bts)
-   //sell_asset nathan 5000 TEST 100 BTS 100000 false true    <-- buyer SELL 5000 TEST @ 0.02
-   //expected result: 1000 TEST filled @15.00
-   // seller is buying TEST selling CORE
-   // buyer is selling TEST buying CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 100 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 1485 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 15 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 85000 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 99900 );
+   //sell_asset nathan 15000 BTS 1000 TEST 100000 false true    <-- buyer BUY 1000 TEST @ 15.00 (bts)
+   //sell_asset nathan 5000 TEST 100 BTS 100000 false true    <-- seller SELL 5000 TEST @ 0.02
+   //expected result: 1000 TEST filled @15.00, remainder: 4000 TEST @ 0.02
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 95000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 85000 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 10 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 15000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 990 );
  }
  catch ( const fc::exception& e )
  {
@@ -504,27 +513,27 @@ BOOST_AUTO_TEST_CASE( taker_sells_overpays_huge_lot )
  }
 }
 
-BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot )
+BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot_isTestBuySell )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 100000 );
 
-   limit_order_id_type first_id  = create_sell_order( buyer_account, test_asset.amount(1000), core_asset.amount(4000) )->id;
-   limit_order_id_type second_id = create_sell_order( buyer_account, test_asset.amount(1000), core_asset.amount(3000) )->id;
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(1000), core_asset.amount(4000) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(1000), core_asset.amount(3000) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 8000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 98000 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( seller_account, core_asset.amount(8000), test_asset.amount(200) );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(8000), test_asset.amount(200), false );
    //print_market( "", "" );
    BOOST_CHECK( db.find( first_id ) );
    BOOST_CHECK( db.find( second_id ) );
@@ -535,14 +544,152 @@ BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot )
    //sell_asset nathan 1000 TEST 4000 BTS 100000 false true    <-- seller SELL 1000 TEST @ 4 (bts)
    //sell_asset nathan 1000 TEST 3000 BTS 100000 false true    <-- seller SELL 1000 TEST @ 3
    //sell_asset nathan 8000 BTS 200 TEST 100000 false true    <-- buyer BUY 200 TEST @ 40
-   //expected result: 200 TEST filled @
+   //expected result: 200 TEST filled @3
    // seller is selling TEST buying CORE
    // buyer is buying TEST selling CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 200 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 594 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 6 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9400 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 8000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 98000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 99400 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2);
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 600 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 198 );
+ }
+ catch ( const fc::exception& e )
+ {
+    elog( "${e}", ("e", e.to_detail_string() ) );
+    throw;
+ }
+}
+
+BOOST_AUTO_TEST_CASE( taker_sells_overpays_huge_lot_isCoreBuySell )
+{ try {
+   INVOKE( issue_uia );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
+
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
+
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 100000 );
+
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(15000), test_asset.amount(1000) )->id;
+
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 85000 );
+
+   //print_market( "", "" );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(5000), core_asset.amount(100) , true );
+   //print_market( "", "" );
+   BOOST_CHECK( db.find( first_id ) );
+   if( unmatched ) wdump((*unmatched));
+   BOOST_CHECK( !unmatched );
+
+   //APM
+   //sell_asset nathan 15000 BTS 1000 TEST 100000 false true    <-- buyer BUY 1000 TEST @ 15.00 (bts)
+   //sell_asset nathan 5000 TEST 100 BTS 100000 false true    <-- seller SELL 5000 TEST @ 0.02
+   //expected result: 90 TEST filled @15.00, remainder: canceled
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 99994 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 85000 );
+   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 90 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 6 );
+ }
+ catch ( const fc::exception& e )
+ {
+    elog( "${e}", ("e", e.to_detail_string() ) );
+    throw;
+ }
+}
+
+BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot_isCoreBuySell )
+{ try {
+   INVOKE( issue_uia );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
+
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
+
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 100000 );
+
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(1000), core_asset.amount(4000) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(1000), core_asset.amount(3000) )->id;
+
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 98000 );
+
+   //print_market( "", "" );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(8000), test_asset.amount(200), true );
+   //print_market( "", "" );
+   BOOST_CHECK( !db.find( first_id ) );
+   BOOST_CHECK( !db.find( second_id ) );
+   if( unmatched ) wdump((*unmatched));
+   BOOST_CHECK( unmatched );
+
+   //APM
+   //sell_asset nathan 1000 TEST 4000 BTS 100000 false true    <-- seller SELL 1000 TEST @ 4 (bts)
+   //sell_asset nathan 1000 TEST 3000 BTS 100000 false true    <-- seller SELL 1000 TEST @ 3
+   //sell_asset nathan 8000 BTS 200 TEST 100000 false true    <-- buyer BUY 200 TEST @ 40
+   //expected result: 1000 TEST filled @3, 1000 TEST filled @4, remainder: 1000 TEST @ 40
+   // seller is selling TEST buying CORE
+   // buyer is buying TEST selling CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 98000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 92000 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 20);
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 7000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 1980 );
+ }
+ catch ( const fc::exception& e )
+ {
+    elog( "${e}", ("e", e.to_detail_string() ) );
+    throw;
+ }
+}
+
+BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot_isCoreBuySell_2 )
+{ try {
+   INVOKE( issue_uia );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
+
+   transfer( committee_account(db), buyer_account, core_asset.amount( 100000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(100000) );
+
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 100000 );
+
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(1000), core_asset.amount(4000) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(10000), core_asset.amount(30000) )->id;
+
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 89000 );
+
+   //print_market( "", "" );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(1000), test_asset.amount(20), true );
+   //print_market( "", "" );
+   BOOST_CHECK( db.find( first_id ) );
+   BOOST_CHECK( db.find( second_id ) );
+   if( unmatched ) wdump((*unmatched));
+   BOOST_CHECK( !unmatched );
+
+   //APM
+   //sell_asset nathan 1000 TEST 4000 BTS 100000 false true    <-- seller SELL 1000 TEST @ 4 (bts)
+   //sell_asset nathan 10000 TEST 30000 BTS 100000 false true    <-- seller SELL 10000 TEST @ 3
+   //sell_asset nathan 1000 BTS 20 TEST 100000 false true    <-- buyer BUY 20 TEST @ 50
+   //expected result: 333 TEST filled @
+   // seller is selling TEST buying CORE
+   // buyer is buying TEST selling CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 89000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 99000 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 3);
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 1000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 330 );
  }
  catch ( const fc::exception& e )
  {
@@ -554,24 +701,24 @@ BOOST_AUTO_TEST_CASE( taker_buys_overpays_huge_lot )
 BOOST_AUTO_TEST_CASE( taker_sells_through_1to1_bid )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( seller_account, core_asset.amount(50), test_asset.amount(100) )->id;
-   limit_order_id_type second_id = create_sell_order( seller_account, core_asset.amount(100), test_asset.amount(100) )->id;
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(50), test_asset.amount(100) )->id;
+   limit_order_id_type second_id = create_sell_order( buyer_account, core_asset.amount(100), test_asset.amount(100) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9850 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9850 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(90) );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(100), core_asset.amount(90), false );
    //print_market( "", "" );
    BOOST_CHECK( db.find( first_id ) );
    BOOST_CHECK( !db.find( second_id ) );
@@ -579,17 +726,17 @@ BOOST_AUTO_TEST_CASE( taker_sells_through_1to1_bid )
    BOOST_CHECK( !unmatched );
 
    //APM
-   //sell_asset nathan 50 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 0.5 (bts)
-   //sell_asset nathan 100 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 1
-   //sell_asset nathan 100 TEST 90 BTS 100000 false true    <-- buyer SELL 100 TEST @ 0.909090
+   //sell_asset nathan 50 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 0.5 (bts)
+   //sell_asset nathan 100 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 1
+   //sell_asset nathan 100 TEST 90 BTS 100000 false true    <-- seller SELL 100 TEST @ 0.909090
    //expected result: 100 TEST filled @1
-   // seller is buying TEST selling CORE
-   // buyer is selling TEST buying CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 100 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 99 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 1 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9850 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9900 );
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9900 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9850 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 1 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 100 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 99 );
  }
  catch ( const fc::exception& e )
  {
@@ -601,39 +748,39 @@ BOOST_AUTO_TEST_CASE( taker_sells_through_1to1_bid )
 BOOST_AUTO_TEST_CASE( taker_sells_small_lot_too_low_through_1to1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( seller_account, core_asset.amount(150), test_asset.amount(100) )->id;
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(150), test_asset.amount(100) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9850 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9850 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( buyer_account, test_asset.amount(11), core_asset.amount(5) );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(11), core_asset.amount(5), false );
    //print_market( "", "" );
    BOOST_CHECK( db.find( first_id ) );
    if( unmatched ) wdump((*unmatched));
    BOOST_CHECK( !unmatched );
 
    //APM
-   //sell_asset nathan 150 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 1.50 (bts)
-   //sell_asset nathan 11 TEST 5 BTS 100000 false true    <-- buyer SELL 11 TEST @ 0.454545
+   //sell_asset nathan 150 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 1.50 (bts)
+   //sell_asset nathan 11 TEST 5 BTS 100000 false true    <-- seller SELL 11 TEST @ 0.454545
    //expected result: 11 TEST filled @1.5
-   // seller is buying TEST selling CORE
-   // buyer is selling TEST buying CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 11 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 16 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9850 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9989 );
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9989 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9850 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 16 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 11 );
  }
  catch ( const fc::exception& e )
  {
@@ -645,39 +792,39 @@ BOOST_AUTO_TEST_CASE( taker_sells_small_lot_too_low_through_1to1 )
 BOOST_AUTO_TEST_CASE( taker_buys_small_lot_too_high_through_1to1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(80) )->id;
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(80) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9900 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9900 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( seller_account, core_asset.amount(15), test_asset.amount(11) );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(15), test_asset.amount(11), false );
    //print_market( "", "" );
    BOOST_CHECK( db.find( first_id ) );
    if( unmatched ) wdump((*unmatched));
-   BOOST_CHECK( unmatched );
+   BOOST_CHECK( !unmatched );
 
    //APM
-   //sell_asset nathan 100 TEST 80 BTS 100000 false true    <-- buyer SELL 100 TEST @ 0.80 (bts)
-   //sell_asset nathan 15 CORE 11 TEST 100000 false true    <-- seller BUY 11 TEST @ 1.363636
-   //expected result: 11 TEST filled @0.80
-   // buyer is selling TEST buying CORE
-   // seller is buying TEST selling CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 10 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 8 );
+   //sell_asset nathan 100 TEST 80 BTS 100000 false true    <-- seller SELL 100 TEST @ 0.80 (bts)
+   //sell_asset nathan 15 CORE 11 TEST 100000 false true    <-- buyer BUY 11 TEST @ 1.363636
+   //expected result: 10 TEST filled @0.80
+   // seller is selling TEST buying CORE
+   // buyer is buying TEST selling CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9900 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9992 );
    BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9990 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9900 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 8 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10 );
  }
  catch ( const fc::exception& e )
  {
@@ -689,24 +836,24 @@ BOOST_AUTO_TEST_CASE( taker_buys_small_lot_too_high_through_1to1 )
 BOOST_AUTO_TEST_CASE( taker_sells_above_1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( seller_account, core_asset.amount(400), test_asset.amount(100) )->id;
-   limit_order_id_type second_id = create_sell_order( seller_account, core_asset.amount(300), test_asset.amount(100) )->id;
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(400), test_asset.amount(100) )->id;
+   limit_order_id_type second_id = create_sell_order( buyer_account, core_asset.amount(300), test_asset.amount(100) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9300 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9300 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( buyer_account, test_asset.amount(300), core_asset.amount(600) );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(300), core_asset.amount(600), false );
    //print_market( "", "" );
    BOOST_CHECK( !db.find( first_id ) );
    BOOST_CHECK( !db.find( second_id ) );
@@ -714,17 +861,17 @@ BOOST_AUTO_TEST_CASE( taker_sells_above_1 )
    BOOST_CHECK( unmatched );
 
    //APM
-   //sell_asset nathan 400 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 4 (bts)
-   //sell_asset nathan 300 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 3
-   //sell_asset nathan 300 TEST 600 BTS 100000 false true    <-- buyer SELL 300 TEST @ 2
+   //sell_asset nathan 400 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 4 (bts)
+   //sell_asset nathan 300 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 3
+   //sell_asset nathan 300 TEST 600 BTS 100000 false true    <-- seller SELL 300 TEST @ 2
    //expected result: 100 TEST filled @4, 100 TEST filled @3, remainder: 100 TEST offered @2
-   // seller is buying TEST selling CORE
-   // buyer is selling TEST buying CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 200 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 693 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 7 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9300 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9700 );
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9700 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9300 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 700 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 198 );
  }
  catch ( const fc::exception& e )
  {
@@ -738,24 +885,24 @@ BOOST_AUTO_TEST_CASE( taker_sells_above_1 )
 BOOST_AUTO_TEST_CASE( taker_sells_below_1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( seller_account, core_asset.amount(25), test_asset.amount(100) )->id;
-   limit_order_id_type second_id = create_sell_order( seller_account, core_asset.amount(50), test_asset.amount(100) )->id;
+   limit_order_id_type first_id  = create_sell_order( buyer_account, core_asset.amount(25), test_asset.amount(100) )->id;
+   limit_order_id_type second_id = create_sell_order( buyer_account, core_asset.amount(50), test_asset.amount(100) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9925 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9925 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( buyer_account, test_asset.amount(300), core_asset.amount(50) );
+   auto unmatched = create_sell_order_with_ext( db, trx, seller_account, test_asset.amount(300), core_asset.amount(50), false );
    //print_market( "", "" );
    BOOST_CHECK( !db.find( first_id ) );
    BOOST_CHECK( !db.find( second_id ) );
@@ -763,17 +910,17 @@ BOOST_AUTO_TEST_CASE( taker_sells_below_1 )
    BOOST_CHECK( unmatched );
 
    //APM
-   //sell_asset nathan 25 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 0.25 (bts)
-   //sell_asset nathan 50 BTS 100 TEST 100000 false true    <-- seller BUY 100 TEST @ 0.50
-   //sell_asset nathan 300 BTS 150 TEST 100000 false true    <-- buyer SELL 300 TEST @0.16667
+   //sell_asset nathan 25 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 0.25 (bts)
+   //sell_asset nathan 50 BTS 100 TEST 100000 false true    <-- buyer BUY 100 TEST @ 0.50
+   //sell_asset nathan 300 TEST 50 BTS 100000 false true    <-- seller SELL 300 TEST @0.16667
    //expected result: 100 TEST filled @0.50, 100 TEST filled @0.25, remainder: 100 TEST offered @0.16667
-   // seller is buying TEST selling CORE
-   // buyer is selling TEST buying CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 200 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 75 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9925 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9700 );
+   // buyer is buying TEST selling CORE
+   // seller is selling TEST buying CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9700 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9925 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 75 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 198 );
  }
  catch ( const fc::exception& e )
  {
@@ -786,24 +933,24 @@ BOOST_AUTO_TEST_CASE( taker_sells_below_1 )
 BOOST_AUTO_TEST_CASE( taker_buys_below_1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(25) )->id;
-   limit_order_id_type second_id = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(50) )->id;
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(25) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(50) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9800 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( seller_account, core_asset.amount(275), test_asset.amount(300) );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(275), test_asset.amount(300), false );
    //print_market( "", "" );
    BOOST_CHECK( !db.find( first_id ) );
    BOOST_CHECK( !db.find( second_id ) );
@@ -817,11 +964,11 @@ BOOST_AUTO_TEST_CASE( taker_buys_below_1 )
    //expected result: 100 TEST filled @0.25, 100 TEST filled @0.50, remainder: 100 TEST bid @0.916667
    // buyer is selling TEST buying CORE
    // seller is buying TEST selling CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 200 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 75 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 0 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9725 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9832 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 75 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 198 );
  }
  catch ( const fc::exception& e )
  {
@@ -833,24 +980,24 @@ BOOST_AUTO_TEST_CASE( taker_buys_below_1 )
 BOOST_AUTO_TEST_CASE( taker_buys_above_1 )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
-   const account_object& nathan_account = get_account( "nathan" );
-   const account_object& buyer_account  = create_account( "buyer" );
-   const account_object& seller_account = create_account( "seller" );
+    const asset_object&   test_asset     = get_asset( "TEST" );
+    const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
+    const account_object& nathan_account = get_account( "nathan" );
+    const account_object& buyer_account  = create_account( "buyer" );
+    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(400) )->id;
-   limit_order_id_type second_id = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(300) )->id;
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(400) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(300) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9800 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( seller_account, core_asset.amount(1500), test_asset.amount(300) );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(1500), test_asset.amount(300), false );
    //print_market( "", "" );
    BOOST_CHECK( !db.find( first_id ) );
    BOOST_CHECK( !db.find( second_id ) );
@@ -864,11 +1011,11 @@ BOOST_AUTO_TEST_CASE( taker_buys_above_1 )
    //expected result: 100 TEST filled @3, 100 TEST filled @4, remainder: 100 TEST bid @5
    // seller is selling TEST buying CORE
    // buyer is buying TEST selling CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 200 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 693 );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 7 );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 8800 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9800 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 8800 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 700 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 198 );
  }
  catch ( const fc::exception& e )
  {
@@ -880,25 +1027,25 @@ BOOST_AUTO_TEST_CASE( taker_buys_above_1 )
 BOOST_AUTO_TEST_CASE( create_buy_uia_multiple_match_new )
 { try {
    INVOKE( issue_uia );
-   const asset_object&   core_asset     = get_asset( "TEST" );
-   const asset_object&   test_asset     = get_asset( GRAPHENE_SYMBOL );
+   const asset_object&   test_asset     = get_asset( "TEST" );
+   const asset_object&   core_asset     = get_asset( GRAPHENE_SYMBOL );
    const account_object& nathan_account = get_account( "nathan" );
    const account_object& buyer_account  = create_account( "buyer" );
    const account_object& seller_account = create_account( "seller" );
 
-   transfer( committee_account(db), buyer_account, test_asset.amount( 10000 ) );
-   transfer( nathan_account, seller_account, core_asset.amount(10000) );
+   transfer( committee_account(db), buyer_account, core_asset.amount( 10000 ) );
+   transfer( nathan_account, seller_account, test_asset.amount(10000) );
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 10000 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 10000 );
 
-   limit_order_id_type first_id  = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(100) )->id;
-   limit_order_id_type second_id = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(200) )->id;
-   limit_order_id_type third_id  = create_sell_order( buyer_account, test_asset.amount(100), core_asset.amount(300) )->id;
+   limit_order_id_type first_id  = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(100) )->id;
+   limit_order_id_type second_id = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(200) )->id;
+   limit_order_id_type third_id  = create_sell_order( seller_account, test_asset.amount(100), core_asset.amount(300) )->id;
 
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9700 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9700 );
 
    //print_market( "", "" );
-   auto unmatched = create_sell_order( seller_account, core_asset.amount(300), test_asset.amount(150) );
+   auto unmatched = create_sell_order_with_ext( db, trx, buyer_account, core_asset.amount(300), test_asset.amount(150), false );
    //print_market( "", "" );
    BOOST_CHECK( !db.find( first_id ) );
    BOOST_CHECK( db.find( second_id ) );
@@ -907,18 +1054,18 @@ BOOST_AUTO_TEST_CASE( create_buy_uia_multiple_match_new )
    BOOST_CHECK( !unmatched );
 
    //APM
-   //sell_asset nathan 100 TEST 100 BTS 100000 false true    <-- buyer SELL 100 TEST @ 1 (bts)
-   //sell_asset nathan 100 TEST 200 BTS 100000 false true    <-- buyer SELL 100 TEST @ 2 (bts)
-   //sell_asset nathan 100 TEST 300 BTS 100000 false true    <-- buyer SELL 100 TEST @ 3 (bts)
-   //sell_asset nathan 300 BTS 150 TEST 100000 false true    <-- seller BUY 150 TEST @ 2 (bts)
+   //sell_asset nathan 100 TEST 100 BTS 100000 false true    <-- seller SELL 100 TEST @ 1 (bts)
+   //sell_asset nathan 100 TEST 200 BTS 100000 false true    <-- seller SELL 100 TEST @ 2 (bts)
+   //sell_asset nathan 100 TEST 300 BTS 100000 false true    <-- seller SELL 100 TEST @ 3 (bts)
+   //sell_asset nathan 300 BTS 150 TEST 100000 false true    <-- buyer BUY 150 TEST @ 2 (bts)
    //expected result: 100 TEST filled @1, 50 TEST filled @2
-   // buyer is selling TEST buying CORE
-   // seller is buying TEST selling CORE
-   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 150 /*200*/ );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 198 /*297*/ );
-   BOOST_CHECK_EQUAL( core_asset.dynamic_asset_data_id(db).accumulated_fees.value , 2 /*3*/ );
-   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 9800 );
-   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 9700 );
+   // seller is selling TEST buying CORE
+   // buyer is buying TEST selling CORE
+   BOOST_CHECK_EQUAL( get_balance( seller_account, test_asset ), 9700 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, core_asset ), 9800 );
+   BOOST_CHECK_EQUAL( test_asset.dynamic_asset_data_id(db).accumulated_fees.value , 1 );
+   BOOST_CHECK_EQUAL( get_balance( seller_account, core_asset ), 200 );
+   BOOST_CHECK_EQUAL( get_balance( buyer_account, test_asset ), 149 );
  }
  catch ( const fc::exception& e )
  {
