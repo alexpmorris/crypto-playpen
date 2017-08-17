@@ -112,3 +112,15 @@ sell_asset nathan 100 TEST 100 BTS 100000 false true
 sell_asset nathan 100 TEST 200 BTS 100000 false true
 sell_asset nathan 100 TEST 300 BTS 100000 false true
 sell_asset nathan 300 BTS 150 TEST 100000 false true
+
+
+sell_asset nathan 103 TEST 400 BTS {} 100000 false true
+sell_asset nathan 103 TEST 300 BTS {} 100000 false true
+sell_asset nathan 900 BTS 250 TEST {} 100000 false true
+sell_asset nathan 900 BTS 250 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 900 BTS 250 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 907 BTS 203 TEST {} 100000 false true
+
+sell_asset nathan 103 TEST 300 BTS {} 100000 false true
+sell_asset nathan 103 TEST 300 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 103 TEST 300 BTS {"isCoreBuySell":true} 100000 false true
