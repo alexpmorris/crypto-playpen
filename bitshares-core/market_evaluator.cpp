@@ -88,7 +88,7 @@ object_id_type limit_order_create_evaluator::do_apply(const limit_order_create_o
        obj.sell_price = op.get_price();
        obj.expiration = op.expiration;
        obj.deferred_fee = _deferred_fee;
-       obj.extensions = op.extensions;
+       obj.extensions = op.extensions.value;
    });
    limit_order_id_type order_id = new_order_object.id; // save this because we may remove the object by filling it
    bool filled = db().apply_order(new_order_object);
