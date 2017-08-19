@@ -19,6 +19,14 @@ OUTDATED!!!!!! --> NO NO NO --- https://github.com/bitshares/bitshares-core/wiki
 
 http://docs.bitshares.eu/testnet/private-testnet.html - https://bitsharestalk.org/index.php/topic,21079.15.html
 	http://docs.bitshares.org/bitshares/tutorials/uia-create-manual.html
+	
+	create_asset nathan WHALEHOLE 0 {"max_supply":1000000000,"max_market_fee":1000, "issuer_permissions":0, "flags":0, "core_exchange_rate":{"base":{"amount":1,"asset_id":"1.3.0"},"quote":{"amount":1,"asset_id":"1.3.1"}}} {} true
+	
+	https://github.com/cryptonomex/graphene/issues/672
+	get_asset WHALEHOLE
+	publish_asset_feed nathan WHALEHOLE {"settlement_price": {"quote": {"amount": 10, "asset_id": "1.3.0"}, "base": {"amount": 100, "asset_id": "1.3.2"}}, "core_exchange_rate": {"quote": {"amount": 10, "asset_id": "1.3.0"}, "base": {"amount": 1, "asset_id": "1.3.2"}}} true
+	borrow_asset nathan 10000 WHALEHOLE 1000000 true	
+	
 		create_asset nathan WHALEHOLE 0 {} {} true
 		issue_asset nathan 10000 WHALEHOLE "" true
 		https://github.com/cryptonomex/graphene-ui/blob/776e892668ce20a8ebc23be56f73768ec535e55c/web/test/README.txt
