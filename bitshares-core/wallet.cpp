@@ -2429,6 +2429,15 @@ public:
       return sign_transaction(tx, broadcast);
    }
 
+   void dbg_make_uia_precision(string creator, string symbol, int precision)
+   {
+      asset_options opts;
+      opts.flags &= ~(white_list | disable_force_settle | global_settle);
+      opts.issuer_permissions = opts.flags;
+      opts.core_exchange_rate = price(asset(1), asset(1,asset_id_type(1)));
+      create_asset(get_account(creator).name, symbol, precision, opts, {}, true);
+   }
+	
    void dbg_make_uia(string creator, string symbol)
    {
       asset_options opts;
@@ -3417,6 +3426,12 @@ signed_transaction wallet_api::sign_transaction(signed_transaction tx, bool broa
 operation wallet_api::get_prototype_operation(string operation_name)
 {
    return my->get_prototype_operation( operation_name );
+}
+
+void wallet_api::dbg_make_uia_precision(string creator, string symbol, int precision)
+{
+   FC_ASSERT(!is_locked());
+   my->dbg_make_uia_precision(creator, symbol, precision);
 }
 
 void wallet_api::dbg_make_uia(string creator, string symbol)
