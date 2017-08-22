@@ -37,13 +37,16 @@ sell_asset nathan 500000 BTS 10000 TEST 100000 false true
 sell_asset nathan 15000 BTS 1000 TEST 100000 false true  
 sell_asset nathan 5000 TEST 100 BTS 100000 false true
 
-sell_asset nathan 1000 BTS 4000 TEST 100000 false true  
-sell_asset nathan 1000 BTS 3000 TEST 100000 false true  
-sell_asset nathan 8000 TEST 200 BTS 100000 false true
+sell_asset nathan 1000 BTS 4000 TEST {} 100000 false true  
+sell_asset nathan 1000 BTS 3000 TEST {} 100000 false true  
+sell_asset nathan 8000 TEST 200 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 8000 TEST 200 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 8000 TEST 200 BTS {} 100000 false true
 
-sell_asset nathan 1000 TEST 4000 BTS 100000 false true  
-sell_asset nathan 1000 TEST 3000 BTS 100000 false true  
+sell_asset nathan 1000 TEST 4000 BTS {} 100000 false true  
+sell_asset nathan 1000 TEST 3000 BTS {} 100000 false true  
 sell_asset nathan 8000 BTS 200 TEST 100000 false true
+sell_asset nathan 8000 TEST 200 BTS {"isCoreBuySell":true} 100000 false true
 
 sell_asset nathan 200 BTS 200 TEST 100000 false true   1 bid
 sell_asset nathan 50 TEST 5 BTS 100000 false true
@@ -124,3 +127,121 @@ sell_asset nathan 907 BTS 203 TEST {} 100000 false true
 sell_asset nathan 103 TEST 300 BTS {} 100000 false true
 sell_asset nathan 103 TEST 300 BTS {"isCoreBuySell":false} 100000 false true
 sell_asset nathan 103 TEST 300 BTS {"isCoreBuySell":true} 100000 false true
+
+sell_asset nathan 10234 TEST 35323 BTS {} 100000 false true
+sell_asset nathan 429 BTS 123 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 429 BTS 124 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 429 BTS 125 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 437 BTS 126 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 430 BTS 124 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 431 BTS 124 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 432 BTS 124 TEST {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 4290 BTS 1250 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 123 TEST 408 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 122 TEST 409 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 118 TEST 402 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 124 TEST 398 BTS {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 124 TEST 398 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 122 TEST 394 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 121 TEST 397 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 118 TEST 391 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 117 TEST 402 BTS {"isCoreBuySell":true} 100000 false true
+
+sell_asset nathan 1024 BTS 98 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 1024 BTS 92 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 1031 BTS 95 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 1001 BTS 87 TEST {"isCoreBuySell":true} 100000 false true
+
+sell_asset nathan 100 TEST 80 BTS {"isCoreBuySell":false} 100000 false true
+core.sell_price.quote.amount.value: 8000000
+core.sell_price.base.amount.value: 10000
+sell_asset nathan 15 BTS 11 TEST {"isCoreBuySell":false} 100000 false true
+usd.amount_for_sale(): {"amount":1500000,"asset_id":"1.3.0"}
+core.amount_for_sale(): {"amount":4825,"asset_id":"1.3.1"}
+
+core:800 * test:100 / 80 = 1000
+
+core:42799022 * test:1023400 / core:3532300000 = test:12399.999749398
+
+42799022 * 1*places / 3532300000 >= 1 and < forsale
+(usd.sell_price.quote.amount.value - usd_receives.amount.value == 1) and 
+(usd.sell_price.quote.amount.value + 1 <= core.sell_price.base.amount.value) usd_receives +1
+
+1500000
+
+dbg_make_uia_precision nathan WHALEHOLE 0
+issue_asset nathan 100000 WHALEHOLE "" true
+
+dbg_make_uia_precision nathan WHOLEA 0
+issue_asset nathan 100000 WHOLEA "" true
+dbg_make_uia_precision nathan WHOLEB 0
+issue_asset nathan 100000 WHOLEB "" true
+
+https://github.com/cryptonomex/graphene/issues/672
+get_asset WHALEHOLE
+
+issues: match() rounding error, 0 pay 0 recv or refund, issue message? (cannot assert)
+added dbg_make_uia_precision
+
+
+WHOLEA/WHOLEB
+sell_asset nathan 100 WHOLEA 80 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 15 BTS 11 WHOLEA {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 15 BTS 1 WHOLEA {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 15 BTS 11 TEST {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1 BTS 1 TEST {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 10 WHOLEA 10 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1000 WHOLEB 10 WHOLEA {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 135 WHOLEA 100 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1 WHOLEA 1 WHOLEB {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 100 WHOLEA 150 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 9 WHOLEA 886 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 886 WHOLEA 9 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 100 WHOLEB 1 WHOLEA {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1 WHOLEA 100 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 225 WHOLEA 1 WHOLEB {"isCoreBuySell":false} 100000 false true
+get_limit_orders WHOLEA BTS 100
+sell_asset nathan 20000 BTS 10000 WHOLEA {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 500 WHOLEA 2500 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 21 BTS 2 WHOLEA {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 100 WHOLEB 80 BTS {"isCoreBuySell":false} 100000 false true
+core.sell_price.quote.amount.value: 8000000
+core.sell_price.base.amount.value: 10000
+why is this precision off????????
+	sell_asset nathan 15 BTS 11 WHOLEB {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 15 BTS 11 WHOLEB {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 16 BTS 11 WHOLEB {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 25 BTS 12 WHOLEB {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 25 BTS 120 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 230 WHOLEB 20 BTS {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 8000 BTS 1 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1000 BTS 1 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 80 BTS 1000 WHOLEB {"isCoreBuySell":false} 100000 false true
+sell_asset nathan 1000 WHOLEB 80 BTS {"isCoreBuySell":false} 100000 false true
+
+sell_asset nathan 1000 TEST 4000 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 10000 TEST 30000 BTS {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 1000 BTS 20 TEST {"isCoreBuySell":true} 100000 false true
+
+
+sell_asset nathan 1000 BTS 4000 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 10000 BTS 30000 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 1000 TEST 20 BTS {"isCoreBuySell":true} 100000 false true
+
+sell_asset nathan 10234 BTS 35323 TEST {"isCoreBuySell":true} 100000 false true
+sell_asset nathan 429 TEST 123 BTS {"isCoreBuySell":true} 100000 false true
+
+
+asset_type.is_transfer_restricted()  <-- for fees_core_only or core_fee_only
+https://github.com/cryptonomex/graphene/blob/d7de6f63e8e29de42af8d06e0029d89fcfddf4fa/libraries/chain/transfer_evaluator.cpp
+https://github.com/cryptonomex/graphene/blob/d7de6f63e8e29de42af8d06e0029d89fcfddf4fa/libraries/chain/include/graphene/chain/protocol/types.hpp
+https://github.com/cryptonomex/graphene/blob/d7de6f63e8e29de42af8d06e0029d89fcfddf4fa/libraries/chain/include/graphene/chain/asset_object.hpp
