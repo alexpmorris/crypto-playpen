@@ -1500,6 +1500,7 @@ class wallet_api
          
       order_book get_order_book( const string& base, const string& quote, unsigned limit = 50);
 
+      void dbg_make_uia_precision(string creator, string symbol, int precision);
       void dbg_make_uia(string creator, string symbol);
       void dbg_make_mia(string creator, string symbol);
       void dbg_push_blocks( std::string src_filename, uint32_t count );
@@ -1680,6 +1681,7 @@ FC_API( graphene::wallet::wallet_api,
         (propose_parameter_change)
         (propose_fee_change)
         (approve_proposal)
+        (dbg_make_uia_precision)
         (dbg_make_uia)
         (dbg_make_mia)
         (dbg_push_blocks)
