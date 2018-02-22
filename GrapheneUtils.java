@@ -122,14 +122,14 @@ public class GrapheneUtils {
     /*
     public static void VerifyDemo() {
         ECKey privKey = GrapheneWifToPrivateKey("5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg");
-        String hexSig = SignMessage("test",privKey);
-        System.out.println("hexSig = " + hexSig);
+        String base64Sig = SignMessage("test",privKey);
+        System.out.println("base64Sig = " + base64Sig);
 
         String pubKeyAddress = getAddressFromPublicKey("STM", privKey);
         System.out.println("PublicAddress = " + pubKeyAddress);
 
         PublicKey pubKeyObj = new PublicKey(pubKeyAddress);
-        System.out.println("isValid = "+VerifyMessage("test", hexSig, pubKeyObj));
+        System.out.println("isValid = "+VerifyMessage("test", base64Sig, pubKeyObj));
     }
     */
 
