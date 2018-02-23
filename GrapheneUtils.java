@@ -25,26 +25,44 @@ import java.math.*;
 import java.nio.charset.*;
 import java.util.*;
 
-// in javascript using my custom-rolled version of the steem-js library (available on my github crypto-playpen):
-// (note: this should also work with other graphene-based javascript libraries)
-//
-// https://stackoverflow.com/questions/12710001/how-to-convert-uint8-array-to-base64-encoded-string
-//
-// verify signature from javascript to java:
-//
-// var privateWif = "5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg";
-// var sigObj = steem.ecc.Signature.sign("test", privateWif);
-// var sigBase64 = btoa('\40'+String.fromCharCode.apply(null, sigObj.r.toBuffer())+String.fromCharCode.apply(null, sigObj.s.toBuffer()))
-//
-// verify signature from java to javascript:
-//
-// var sigBase64 = "G+MS/x9rpgfhxR7Z3s9VopBW8y7iJZPaN+4D8yp7MNqqBI/Pux85Prl0UacVRTkcBeFvfat/Pdc7PVoXKq4eqnY=";
-// var publicKey = "STM6aGPtxMUGnTPfKLSxdwCHbximSJxzrRjeQmwRW9BRCdrFotKLs";
-// var pubKeyObj = steem.ecc.PublicKey.fromString(publicKey)
-// var sigBuf = new steem.ecc.buffer('\33'+atob(sigBase64).substring(1),"ascii");
-// var sigObj = steem.ecc.Signature.fromBuffer(sigBuf);
-// var isValid = sigObj.verifyBuffer("test",pubKeyObj);
-// if (isValid) console.log("valid signature!");
+/* in javascript using my custom-rolled version of the steem-js library (available on my github crypto-playpen):
+   (note: this should also work with other graphene-based javascript libraries)
+
+https://stackoverflow.com/questions/12710001/how-to-convert-uint8-array-to-base64-encoded-string
+
+verify signature from javascript to java:
+
+    var privateWif = "5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg";
+    var sigObj = steem.ecc.Signature.sign("test", privateWif);
+    var sigBase64 = btoa('\40'+String.fromCharCode.apply(null, sigObj.r.toBuffer())+String.fromCharCode.apply(null, sigObj.s.toBuffer()));
+
+verify signature from java to javascript:
+
+    var sigBase64 = "G+MS/x9rpgfhxR7Z3s9VopBW8y7iJZPaN+4D8yp7MNqqBI/Pux85Prl0UacVRTkcBeFvfat/Pdc7PVoXKq4eqnY=";
+    var publicKey = "STM6aGPtxMUGnTPfKLSxdwCHbximSJxzrRjeQmwRW9BRCdrFotKLs";
+    var pubKeyObj = steem.ecc.PublicKey.fromString(publicKey)
+    var sigBuf = new steem.ecc.buffer('\33'+atob(sigBase64).substring(1),"ascii");
+    var sigObj = steem.ecc.Signature.fromBuffer(sigBuf);
+    var isValid = sigObj.verifyBuffer("test",pubKeyObj);
+    if (isValid) console.log("valid signature!");
+
+javascript functions based on the above:
+
+    function signGrapheneMessage(msg, privateWif) {
+      const sigObj = steem.ecc.Signature.sign(msg, privateWif);
+      return btoa('\40'+String.fromCharCode.apply(null, sigObj.r.toBuffer())+String.fromCharCode.apply(null, sigObj.s.toBuffer()));
+    }
+
+    function verifyGrapheneMessage(msg, sigBase64, publicKey) {
+      try {
+        const pubKeyObj = steem.ecc.PublicKey.fromString(publicKey)
+        const sigBuf = new steem.ecc.buffer('\33'+atob(sigBase64).substring(1),"ascii");
+        const sigObj = steem.ecc.Signature.fromBuffer(sigBuf);
+        return sigObj.verifyBuffer(msg,pubKeyObj);
+      } catch (e) { return false; }
+    }
+
+*/
 
 public class GrapheneUtils {
 
