@@ -13,6 +13,12 @@
 // https://github.com/Agorise/graphenej
 //
 // https://github.com/steemit/steem-js
+//
+// new key formats for eos: https://github.com/EOSIO/eos/issues/2146
+//      Public keys will be represented as EOS_<key_type_id>_<base_58_encoding_of_public_key_data>
+//      Private keys will be represented as PRI_<key_type_id>_<base_58_encoding_of_private_key_data>
+//      Signatures will be represented as SIG_<key_type_id>_<base_58_encoding_of_signature_data>
+
 
 import com.google.common.primitives.*;
 import eu.bittrade.crypto.core.*;
@@ -135,6 +141,48 @@ public class GrapheneUtils {
         } catch (Exception e) { return false; }
     }
 
+    public static String SignEosMessage(String message, eu.bittrade.crypto.core.ECKey privKey) {
+        Sha256Hash messageAsHash = Sha256Hash.of(message.getBytes());
+        ECKey.ECDSASignature sigObj = privKey.sign(messageAsHash);
+
+        byte[] sigData = new byte[69];
+        // first byte is header, defined as "int headerByte = recId + 27 + (isCompressed() ? 4 : 0);"
+        sigData[0] = (byte)31;
+        System.arraycopy(CryptoUtils.bigIntegerToBytes(sigObj.r, 32), 0, sigData, 1, 32);
+        System.arraycopy(CryptoUtils.bigIntegerToBytes(sigObj.s, 32), 0, sigData, 33, 32);
+
+        //append ripemd160 checksum
+        byte[] checksum = calculateChecksum(Bytes.concat(Arrays.copyOfRange(sigData, 0, 65),"K1".getBytes()));
+        System.arraycopy(checksum, 0, sigData, 65, 4);
+
+        return new String("SIG_K1_"+Base58.encode(sigData));
+    }
+
+    public static boolean VerifyEosMessage(String message, String sigBase58, PublicKey pubKey) {
+        try {
+
+            byte[] encodedSig;
+            String[] sig_arr = sigBase58.split("_");
+            encodedSig = Base58.decode(sig_arr[2]);
+
+            byte header = encodedSig[0];
+            BigInteger r = new BigInteger(1, Arrays.copyOfRange(encodedSig, 1, 33));
+            BigInteger s = new BigInteger(1, Arrays.copyOfRange(encodedSig, 33, 65));
+            byte[] checksum = Arrays.copyOfRange(encodedSig, 65, 69);
+
+            //ripemd160 checksum
+            byte[] new_checksum = calculateChecksum(Bytes.concat(Arrays.copyOfRange(encodedSig, 0, 65),"K1".getBytes()));
+            if (!Arrays.equals(Arrays.copyOfRange(new_checksum,0, 4),checksum)) return false;
+
+            ECKey.ECDSASignature sigObj = new ECKey.ECDSASignature(r, s);
+
+            Sha256Hash messageAsHash = Sha256Hash.of(message.getBytes());
+
+            return ECKey.verify(messageAsHash.getBytes(), sigObj.encodeToDER(), pubKey.toByteArray());
+
+        } catch (Exception e) { return false; }
+    }
+   
     // sample usage
 
     /*
