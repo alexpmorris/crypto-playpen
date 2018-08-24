@@ -5,4 +5,6 @@ GrapheneUtils.java: easily verify messages passed between javascript <-> java us
 
 Link: <a href="https://steemit.com/utopian-io/@alexpmorris/3dwrvc-howto-verify-messages-between-javascript-and-java-with-a-graphene-keypair">HOWTO Verify Messages Between JavaScript and Java with a Graphene KeyPair (via utopian-io)</a>
 
+Link: <a href="https://steemit.com/steemdev/@alexpmorris/howto-verify-eos-messages-between-javascript-and-java-with-a-graphene-keypair">HOWTO Verify EOS Messages Between JavaScript and Java with a Graphene KeyPair</a>
+
 steem.min.js: extended version of steemjs javascript library exposes ecc, memo, buffer classes
