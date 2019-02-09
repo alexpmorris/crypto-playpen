@@ -9,7 +9,7 @@ const app = http.createServer((req,res) => {
          req.connection.socket.remoteAddress;
     var code = 200;     
     try {
-        res.end(fs.readFileSync(__dirname + req.url));
+        res.end(fs.readFileSync(__dirname + req.url.split("?")[0]));
     } catch(e) { code = 404; }
     res.writeHead(code);
     console.log(ip+" \""+req.method+" "+req.url+" HTTP/"+req.httpVersion+"\" "+code);
