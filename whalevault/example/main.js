@@ -1,7 +1,8 @@
 // Send Handshake event
 $("#sw-handshake").click(function() {
-    whalevault.requestHandshake("demo", function() {
+    whalevault.requestHandshake("demo", function(response) {
         console.log('WhaleVault Handshake Received!');
+        console.log(response);
     });
 });
 
