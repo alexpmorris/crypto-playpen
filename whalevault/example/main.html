@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WhaleVault Demo</title>
+</head>
+
+<body>
+    <h1>WhaleVault Demo</h1>
+    <h3>Handshake</h3>
+    <button id="sw-handshake">Send Handshake</button>
+
+    <h3>PubKeys</h3>
+    <input type="text" placeholder="chain:username" id="pubkeys_username" />
+    <button id="send_pubkeys">Send</button>
+    <i><b>Note:</b> request pubkeys available for multiple accounts in one call by comma-separating chain:usernames</i><br/>
+
+    <h3>Encrypt Memo</h3>
+    <input type="text" placeholder="chain:username" id="encrypt_username" />
+    <select id="encrypt_keytype">
+      <option>Memo</option>
+      <option>Posting</option>
+      <option>Active</option>
+    </select>
+    <input type="text" id="encrypt_message" placeholder="message" />
+    <input type="text" id="encrypt_reason" placeholder="reason" />
+    <input type="text" id="encrypt_to_pubkey" placeholder="ToPubKey" />
+    <select id="encrypt_memotype">
+      <option>bts</option>
+      <option>stm</option>
+    </select>
+    <button id="send_encrypt">Send</button>
+
+    <h3>Decrypt Memo</h3>
+    <input type="text" placeholder="chain:username" id="decrypt_username" />
+    <select id="decrypt_keytype">
+      <option>Memo</option>
+      <option>Posting</option>
+      <option>Active</option>
+    </select>
+    <input type="text" id="decrypt_message" placeholder="message" />
+    <input type="text" id="decrypt_reason" placeholder="reason" />
+    <button id="send_decrypt">Send</button>
+
+    <h3>Sign Buffer</h3>
+    <input type="text" placeholder="chain:username" id="sb_username" />
+    <select id="sb_keytype">
+      <option>Memo</option>
+      <option>Posting</option>
+      <option>Active</option>
+    </select>
+    <input type="text" id="sb_message" placeholder="message" />
+    <input type="text" id="sb_reason" placeholder="reason" />
+    <select id="sb_sigtype">
+        <option>raw</option>
+        <option>hex</option>
+        <option>eos</option>
+      </select>
+    <button id="send_signbuffer">Send</button>
+    <br/><br/>
+    <i><b>SignBuffer Note:</b><br/>If message is a STEEM-compatible "operations" object, the tx will be signed and sig returned in hex format.<br/>
+      If message is an EOS-compatible "actions" object, tx will be signed and broadcast.</i><br/><br/>
+    <div id="sig_demos" style="margin:25px;padding:15px;background-color:lightgray;"></div>
+
+    <script src="jquery.js"></script>
+    <script src="main.js?v=a"></script>
+</body>
+
+</html>
