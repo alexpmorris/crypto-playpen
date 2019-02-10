@@ -70,7 +70,8 @@ if (window.whalevault) {
 Additionally, you can request a "handshake" from the extension to further ensure it's installed and that your page is able to connect to it:
 
 ```
-whalevault.requestHandshake("appId", function() {
-    console.log('whalevault: Handshake received!'); 
+whalevault.requestHandshake("appId", function(response) {
+    console.log('whalevault: Handshake received!');
+    console.log(response);
 });
 ```
