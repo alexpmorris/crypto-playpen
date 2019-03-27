@@ -74,7 +74,7 @@ Additionally, you can request a "handshake" from the extension to further ensure
 
 *as callback:*
 ```
-whalevault.requestHandshake("appId", function(response) {
+window.whalevault.requestHandshake("appId", function(response) {
     console.log('whalevault: Handshake received!');
     console.log(response);
 });
@@ -82,5 +82,5 @@ whalevault.requestHandshake("appId", function(response) {
 
 *as promise:*
 ```
-var response = await wf.whalevault.promiseHandshake("appId");
+var response = await window.whalevault.promiseHandshake("appId");
 ```
