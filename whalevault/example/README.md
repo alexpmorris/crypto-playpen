@@ -34,6 +34,7 @@ Websites can currently request the WhaleVault extension to perform the following
 - Encrypt/Decrypt messages encrypted by a private key
 - Securely sign transactions in multiple formats for multiple purposes,
   including identity verification for login purposes
+- Methods available can return either callbacks or promises
 
 ## Installation
 Make sure you only install the extension directly from the chrome web store via the following link:
@@ -71,9 +72,15 @@ if (window.whalevault) {
 
 Additionally, you can request a "handshake" from the extension to further ensure it's installed and that your page is able to connect to it:
 
+*as callback:*
 ```
 whalevault.requestHandshake("appId", function(response) {
     console.log('whalevault: Handshake received!');
     console.log(response);
 });
+```
+
+*as promise:*
+```
+var response = await wf.whalevault.promiseHandshake("appId");
 ```
