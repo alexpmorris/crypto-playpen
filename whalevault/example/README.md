@@ -37,10 +37,11 @@ Websites can currently request the WhaleVault extension to perform the following
 - Methods available can return either callbacks or promises
 
 ## Installation
-Make sure you only install the extension directly from the chrome web store via the following link:
-https://chrome.google.com/webstore/detail/hcoigoaekhfajcoingnngmfjdidhmdon
+Make sure you only install the extension directly from:
+- Chrome Web Store: https://chrome.google.com/webstore/detail/hcoigoaekhfajcoingnngmfjdidhmdon
+- Firefox Add-ons: https://addons.mozilla.org/en-US/firefox/addon/whalevault/
 
-Or directly from its primary github repo: https://github.com/alexpmorris/whalevault/releases
+Or directly from the official github repo: https://github.com/alexpmorris/whalevault/releases
 
 For your own safety and security, **DO NOT INSTALL FROM ANYWHERE ELSE!**
 
