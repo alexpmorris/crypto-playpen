@@ -13,8 +13,10 @@
 
     <h3>PubKeys</h3>
     <input type="text" placeholder="chain:username" id="pubkeys_username" />
-    <button id="send_pubkeys">Send</button>
-    <i><b>Note:</b> request pubkeys available for multiple accounts in one call by comma-separating chain:usernames</i><br/>
+    <button id="send_pubkeys">Send</button><br/><br/>
+    <i><b>PubKeys Notes:</b></i><br/>
+    <i>Request pubkeys available for multiple accounts in one call by comma-separating <b>chain:username</b> pairs.<br/>
+    If required for authentication, app/server must still verify that public keys match those on chain.</i>
 
     <h3>Encrypt Memo</h3>
     <input type="text" placeholder="chain:username" id="encrypt_username" />
@@ -59,7 +61,7 @@
       </select>
     <button id="send_signbuffer">Send</button>
     <br/><br/>
-    <i><b>SignBuffer Note:</b><br/>If message is a STEEM-compatible "operations" object, the tx will be signed and sig returned in hex format.<br/>
+    <i><b>SignBuffer Notes:</b><br/>If message is a STEEM-compatible "operations" object, the tx will be signed and sig returned in hex format.<br/>
       If message is an EOS-compatible "actions" object, tx will be signed and broadcast.</i><br/><br/>
     <div id="sig_demos" style="margin:25px;padding:15px;background-color:lightgray;"></div>
 
