@@ -1,6 +1,6 @@
 {
   "domains": {},
-  "whalevault": "0.1.10",
+  "whalevault": "0.1.11",
   "alerts": [
     {"dt":"2019-03-15T17:00:00Z", "url":"https://thehackernews.com/2019/02/winrar-hacking-exploit.html", "title":"Latest WinRAR Flaw Being Exploited in the Wild to Hack Windows Computers"},
     {"dt":"2019-01-29T17:00:00Z", "url":"https://www.youtube.com/watch?v=prav0AEzRzs", "title":"Trybe TV - Scam Alert. How my EOS account got hacked and how yours could too"},
