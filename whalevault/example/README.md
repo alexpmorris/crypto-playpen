@@ -1,20 +1,18 @@
 WHALEVAULT :: *Secure Graphene Cross-Chain Key Store Extension*
 ---
-Putting private keys directly into websites is not safe or secure. Even ones run by SteemIt, Inc. Yet this is currently how nearly every Steem-based site or service currently works. On top of that, most Steem users likely use their master password which is even worse
+It's not safe or secure to use your private keys or master passwords directly on a website, even if operated by a trusted party, as it also incentivizes hackers to find site vulnerabilities and exploit them.  Yet this is still how many graphene-based sites and services still operate.  This attack vector increases with the type of key required.  Master passwords offer the greatest potential reward, granting an attacker complete control over the account.
 
-The Vessel desktop wallet software is a secure alternative, but it is too difficult to use for the majority of Steem users and does not easily interact with websites - which is Steem's primary use case.
+On Ethereum, you never have to enter your private key into a website to use a dApp.  You just use a browser extension like MetaMask, and dApp websites can interface with the extension to securely sign and broadcast transactions to the blockchain on its behalf.
 
-On Ethereum, you never have to enter your private key into a website to use a dApp, you can just use a browser extension like Metamask, which dApp websites can interface with to securely store your keys and broadcast transactions to the blockchain.
+WhaleVault aims to bring the security and ease-of-use of MetaMask to all graphene-based blockchains, accessible through a single unified extension.
 
-Steem Keychain aims to bring the security and ease-of-use of Metamask to the Steem blockchain platform.
-
-WhaleVault, based on Steem Keychain, is a better, safer cross-chain way to access all your graphene accounts from the Chrome browser.  Graphene blockchains supported out-of-the-box include WhaleShares, BitShares, Eos, Steem, Smoke, Telos, Worbli, Golos, Peerplays, Scorum, and Vice.  WhaleVault is also the "key vault of choice" for ShareBits.
+WhaleVault, based on Steem Keychain, is a better, safer cross-chain way to access all your graphene accounts from both desktop and mobile browsers such as Chrome, Firefox, Brave, and Yandex.  Graphene blockchains supported out-of-the-box include WhaleShares, BitShares, Eos, Steem, Smoke, Telos, Worbli, Golos, Peerplays, Scorum, and Vice.  WhaleVault is also the "key vault of choice" for ShareBits.
 
 The extension injects the WhaleVault API into each website's javascript context, so that any website that you authorize can safely and securely request a signature or encrypt/decrypt a memo without ever having direct access to any of your private keys.
 
-Because it adds functionality to the normal browser context, WhaleVault requires permission to read and write any web page that wishes to access the extension. You can always "view source" of WhaleVault the way you would any Chrome extension, or from the soon to be available github repo.
+Because it adds functionality to the normal browser context, WhaleVault requires permission to read and write any web page that wishes to access the extension. You can always "view source" of WhaleVault the way you would any Chrome extension or Firefox Add-on, or from the official GitHub repo: https://github.com/alexpmorris/whalevault
 
-WhaleVault is a multi-chain fork by @alexpmorris of the Steem Keychain browser extension.  Steem Keychain (available at https://github.com/MattyIce/steem-keychain) was originally created by @yabapmatt, developed by @stoodkev, and funded by @aggroed. Many thanks to them for creating a great template upon which to build WhaleVault!
+WhaleVault is a multi-chain fork by @alexpmorris of the Steem Keychain browser extension.  Steem Keychain (repo at https://github.com/MattyIce/steem-keychain) was originally created by @yabapmatt, developed by @stoodkev, and funded by @aggroed. Many thanks to them for creating a great template upon which to build WhaleVault!
 
 ## Features
 The WhaleVault extension includes the following features:
