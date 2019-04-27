@@ -1,7 +1,8 @@
 {
   "domains": {},
-  "whalevault": "0.1.11",
+  "whalevault": "0.1.12",
   "alerts": [
+    {"dt":"2019-04-22T17:00:00Z", "url":"https://whaleshares.io/@alexpmorris/whalevault-secure-graphene-cross-chain-key-store-extension", "title":"WhaleVault Introduction, Overview and Walk-through"},
     {"dt":"2019-03-15T17:00:00Z", "url":"https://thehackernews.com/2019/02/winrar-hacking-exploit.html", "title":"Latest WinRAR Flaw Being Exploited in the Wild to Hack Windows Computers"},
     {"dt":"2019-01-29T17:00:00Z", "url":"https://www.youtube.com/watch?v=prav0AEzRzs", "title":"Trybe TV - Scam Alert. How my EOS account got hacked and how yours could too"},
     {"dt":"2019-01-28T17:00:00Z", "url":"https://whaleshares.io/bitshares/@krazywitness/bitshares-scam-do-not-accept-proposed-transactions-that-update-your-account-data", "title":"Bitshares Scam - DO NOT accept proposed transactions that update your account data"}
