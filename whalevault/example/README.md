@@ -81,5 +81,5 @@ window.whalevault.requestHandshake("appId", function(response) {
 
 *as promise:*
 ```
-var response = await window.whalevault.promiseHandshake("appId");
+var response = await window.whalevault.promiseRequestHandshake("appId");
 ```
