@@ -83,3 +83,32 @@ window.whalevault.requestHandshake("appId", function(response) {
 ```
 var response = await window.whalevault.promiseRequestHandshake("appId");
 ```
+
+### Signing Transactions
+
+WhaleVault is generally embedded directly into libraries.  For example, it works out-of-the-box with the latest `wlsjs` or `smokejs` libraries simply by setting the following:
+
+* wlsjs: `wlsjs.config.whalevault = window.whalevault;`
+* smokejs: `steem.config.whalevault = window.whalevault;`
+
+
+However, WhaleVault can also attempt to transmit the tx without the need for additional chain libraries by setting the chain's `url` in the signing object.  If the tx is accepted, instead of receiving a signature, you would receive the chain's response to the tx.
+
+Here is an example of a `transfer op` for whaleshares:
+
+```
+var ops = [ 
+  ['transfer', 
+   { from: 'user', 
+     to: 'recip', 
+     amount: '5.000 WLS', 
+     memo: 'sample xfer'
+   }
+  ]
+];
+
+whalevault.requestSignBuffer('demo', 'wls:user', 
+                             { url: 'https://pubrpc.whaleshares.io', operations: ops }, 
+                             'Active', 'transfer', 'tx', 
+                             function(response) { console.log(response); });
+```
