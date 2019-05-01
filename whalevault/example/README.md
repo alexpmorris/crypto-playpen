@@ -92,6 +92,8 @@ WhaleVault is generally embedded directly into libraries.  For example, it works
 
 * wlsjs: `wlsjs.config.whalevault = window.whalevault;`
 * smokejs: `steem.config.whalevault = window.whalevault;`
+* steemjs: `steem.config.whalevault = window.whalevault;`
+  * requires steemjs fork available here: https://github.com/alexpmorris/steem-js/tree/master/dist
 
 
 However, WhaleVault can also attempt to transmit the tx without the need for additional chain libraries by setting the chain's `url` in the signing object.  If the tx is accepted, instead of receiving a signature, you would receive the chain's response to the tx.
