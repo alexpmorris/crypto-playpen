@@ -49,9 +49,11 @@ As an additional precaution, you should only allow **"site access"** to the Whal
 
 An example of a web page that interacts with the extension is included in the "example" folder in the repo. You can test it by running a local HTTP server and going to http://localhost:1337/main.html in your browser.
 
-`cd example`
-`node node_serve.js  //static server via nodejs`
-`py3_serve  //static server via python3`
+```
+cd example
+node node_serve.js  //static server via nodejs
+py3_serve  //static server via python3
+```
 
 NOTE: On localhost, it will only run on port 1337.
 
