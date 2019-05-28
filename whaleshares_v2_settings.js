@@ -14,7 +14,15 @@
     var settings = localStorage.getItem('settings');
     if (settings == null) {
       // set default settings and enable slider at 25%
-      localStorage.setItem('settings', "{\"locale\":\"en-US\",\"votingPower\":\"on\",\"votePercent\":2500,\"showNSFWPosts\":true,\"rewriteLinks\":false}");
+
+      var settingsObj = { locale: "en-US",
+                          votingPower: "on",
+                          votePercent: 2500,
+                          showNSFWPosts: true,
+                          rewriteLinks: false
+                        };
+
+      localStorage.setItem('settings', JSON.stringify(settingsObj));
       alert("Script: Set Default Whaleshares Settings and Enabled Slider!");
     }
 
