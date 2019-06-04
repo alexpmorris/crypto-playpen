@@ -1,6 +1,6 @@
 {
   "domains": {},
-  "whalevault": "0.1.14",
+  "whalevault": "0.1.15",
   "alerts": [
     {"dt":"2019-04-22T17:00:00Z", "url":"https://whaleshares.io/@alexpmorris/whalevault-secure-graphene-cross-chain-key-store-extension", "title":"WhaleVault Introduction, Overview and Walk-through"},
     {"dt":"2019-03-15T17:00:00Z", "url":"https://thehackernews.com/2019/02/winrar-hacking-exploit.html", "title":"Latest WinRAR Flaw Being Exploited in the Wild to Hack Windows Computers"},
