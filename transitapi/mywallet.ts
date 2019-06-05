@@ -51,13 +51,13 @@ function makeSignatureProvider(network: NetworkConfig) {
 
 			const rpc = new JsonRpc(network.protocol + '://' + network.host + ':' + network.port);
 			const args = { rpc, 
-				       authorityProvider: undefined, 
-				       abiProvider: undefined, 
-				       signatureProvider: this, 
-				       chainId: undefined, 
-				       textEncoder: undefined, 
-				       textDecoder: undefined
-				     };
+                           authorityProvider: undefined, 
+                           abiProvider: undefined, 
+                           signatureProvider: this, 
+                           chainId: undefined, 
+                           textEncoder: undefined, 
+                           textDecoder: undefined
+                         };
 			const api = new Api(args);
 			const _txn = await api.deserializeTransactionWithActions(signatureProviderArgs.serializedTransaction);
 
@@ -66,7 +66,7 @@ function makeSignatureProvider(network: NetworkConfig) {
 			_txn.network = network;
 
 			const response = await wv.whalevault.promiseRequestSignBuffer(wv.appId, wv.accountChain+':'+wv.accountName, 
-                                                                                      _txn, 'active', reason, 'eos');
+                                                                          _txn, 'active', reason, 'eos');
 
 			const signatureArray = response.success ? [response.result] : [];
 			const sigResponse: RpcInterfaces.PushTransactionArgs = {
@@ -83,7 +83,7 @@ function signArbitrary(data: string, userMessage: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		if (wv.appId === '') reject('uninitalized');
 		wv.whalevault.requestSignBuffer(wv.appId, wv.accountChain+':'+wv.accountName, data, 'active',
-                                                userMessage, 'eos', (response: any) => {
+                                        userMessage, 'eos', (response: any) => {
 			if (response.success) resolve(response.result); else reject(response.message);
 		});
 	});
@@ -116,8 +116,6 @@ export function whalevaultWalletProvider() {
 
 		function discover(discoveryOptions: DiscoveryOptions) {
 			logIfDebugEnabled('The discover() method of transit:WhaleVault was called');
-
-			// You probably do not need to implement this method.
 
 			return new Promise((resolve, reject) => {
 				const discoveryInfo = {
@@ -156,7 +154,7 @@ export function whalevaultWalletProvider() {
 
 			if (wv.whalevault) {
 				const pkResponse = await wv.whalevault.promiseRequestPubKeys(wv.appId, wv.accountChain+':'+wv.accountName);
-				logIfDebugEnabled(JSON.stringify(pkResponse));
+
 				if (pkResponse.success && pkResponse.result &&
 					pkResponse.result[wv.accountChain+':'+wv.accountName] &&
 					pkResponse.result[wv.accountChain+':'+wv.accountName].activePubkey) {
@@ -178,6 +176,11 @@ export function whalevaultWalletProvider() {
 		}
 
 		function logout(accountName?: string): Promise<any> {
+			wv.accountPublickey = '';
+			wv.accountPubKeys = '';
+			wv.accountChain = '';
+			wv.accountName = '';
+			wv.appId = '';
 			const res = async function m2(): Promise<any> {
 				if (true) return true;
 			};
