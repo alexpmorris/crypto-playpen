@@ -83,7 +83,7 @@ function signArbitrary(data: string, userMessage: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		if (wv.appId === '') reject('uninitalized');
 		wv.whalevault.requestSignBuffer(wv.appId, wv.accountChain+':'+wv.accountName, data, 'active',
-											userMessage, 'eos', (response: any) => {
+                                                userMessage, 'eos', (response: any) => {
 			if (response.success) resolve(response.result); else reject(response.message);
 		});
 	});
