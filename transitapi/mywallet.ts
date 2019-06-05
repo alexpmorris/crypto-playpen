@@ -51,13 +51,13 @@ function makeSignatureProvider(network: NetworkConfig) {
 
 			const rpc = new JsonRpc(network.protocol + '://' + network.host + ':' + network.port);
 			const args = { rpc, 
-						   authorityProvider: undefined, 
-						   abiProvider: undefined, 
-						   signatureProvider: this, 
-						   chainId: undefined, 
-						   textEncoder: undefined, 
-						   textDecoder: undefined
-						};
+				       authorityProvider: undefined, 
+				       abiProvider: undefined, 
+				       signatureProvider: this, 
+				       chainId: undefined, 
+				       textEncoder: undefined, 
+				       textDecoder: undefined
+				     };
 			const api = new Api(args);
 			const _txn = await api.deserializeTransactionWithActions(signatureProviderArgs.serializedTransaction);
 
@@ -65,8 +65,8 @@ function makeSignatureProvider(network: NetworkConfig) {
 
 			_txn.network = network;
 
-			const response = await wv.whalevault.promiseRequestSignBuffer(wv.appId, wv.accountChain+':'+wv.accountName, _txn, 'active',
-						   reason, 'eos');
+			const response = await wv.whalevault.promiseRequestSignBuffer(wv.appId, wv.accountChain+':'+wv.accountName, 
+                                                                                      _txn, 'active', reason, 'eos');
 
 			const signatureArray = response.success ? [response.result] : [];
 			const sigResponse: RpcInterfaces.PushTransactionArgs = {
