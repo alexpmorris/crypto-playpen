@@ -34,7 +34,7 @@ export class TestScreen extends Component<any, LoginScreenState> {
 					// Normally we'd check the discovery data here.
 					this.logIfDebugEnabled('Calling login()');
 					this.logIfDebugEnabled('Transit will try to fetch account info for this account');
-					this.wallet.login('eos:eostestacct1').then(() => {
+					this.wallet.login().then(() => {
 						const auth = this.wallet;
 
 						this.logIfDebugEnabled('Login Completed. The account info fetched from chain was:');
