@@ -124,7 +124,7 @@ export function whalevaultWalletProvider() {
 				};
 
 				resolve(discoveryInfo);
-			});
+			});			
 		}
 
 		function disconnect(): Promise<any> {
@@ -155,20 +155,25 @@ export function whalevaultWalletProvider() {
 			if (wv.whalevault) {
 				const pkResponse = await wv.whalevault.promiseRequestPubKeys(wv.appId, wv.accountChain+':'+wv.accountName);
 
-				if (pkResponse.success && pkResponse.result &&
-					pkResponse.result[wv.accountChain+':'+wv.accountName] &&
-					pkResponse.result[wv.accountChain+':'+wv.accountName].activePubkey) {
+				if (pkResponse.success && pkResponse.result) {
 
-					wv.accountPubKeys = pkResponse.result[wv.accountChain+':'+wv.accountName];
-					wv.accountPublickey = pkResponse.result[wv.accountChain+':'+wv.accountName].activePubkey;
+					if (wv.accountName === '' && Object.keys(pkResponse.result).length > 0) { 
+						wv.accountName = Object.keys(pkResponse.result)[0].substring(4);
+					}
 
-					return {
-						accountName: wv.accountName,
-						permission: 'active',
-						publicKey: wv.accountPublickey
-					};
+					if (pkResponse.result[wv.accountChain+':'+wv.accountName] &&
+						pkResponse.result[wv.accountChain+':'+wv.accountName].activePubkey) {
 
-				} else throw new Error("activeKey not found in WhaleVault for "+wv.accountChain+':'+wv.accountName);
+						wv.accountPubKeys = pkResponse.result[wv.accountChain+':'+wv.accountName];
+						wv.accountPublickey = pkResponse.result[wv.accountChain+':'+wv.accountName].activePubkey;
+
+						return {
+							accountName: wv.accountName,
+							permission: 'active',
+							publicKey: wv.accountPublickey
+						};
+					} else throw new Error("activeKey not found in WhaleVault for "+wv.accountChain+':'+wv.accountName);
+				} else throw new Error("Account access not authorized");
 			}
 			
 			throw new Error('WhaleVault not Found!');
