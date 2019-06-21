@@ -141,7 +141,7 @@ export function whalevaultWalletProvider() {
 			logIfDebugEnabled('The login method of transit:WhaleVault was called');
 
 			if (wv.appId === '') throw new Error('uninitalized');
-			if (accountName == null) throw new Error('chainid:userid must be provided');
+			if (accountName == null) accountName = '';
 			
 			const arrAccount = accountName.split(":");
 			if (arrAccount.length > 1) {
@@ -175,7 +175,7 @@ export function whalevaultWalletProvider() {
 					} else throw new Error("activeKey not found in WhaleVault for "+wv.accountChain+':'+wv.accountName);
 
 				} else throw new Error("Account access not authorized for chain "+wv.accountChain);
-				
+
 			}
 			
 			throw new Error('WhaleVault not Found!');
