@@ -173,7 +173,9 @@ export function whalevaultWalletProvider() {
 							publicKey: wv.accountPublickey
 						};
 					} else throw new Error("activeKey not found in WhaleVault for "+wv.accountChain+':'+wv.accountName);
-				} else throw new Error("Account access not authorized");
+
+				} else throw new Error("Account access not authorized for chain "+wv.accountChain);
+				
 			}
 			
 			throw new Error('WhaleVault not Found!');
