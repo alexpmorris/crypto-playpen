@@ -16,7 +16,8 @@
     <button id="send_pubkeys">Send</button><br/><br/>
     <i><b>PubKeys Notes:</b></i><br/>
     <i>Request pubkeys available for multiple accounts in one call by comma-separating <b>chain:username</b> pairs.<br/>
-    If required for authentication, app/server must still verify that public keys match those on chain.</i>
+    If required for authentication, app/server must still verify that public keys match those on chain.</i><br/>
+    <i>Supply chain short-code only with colon (ie. "<b>eos:</b>") to popup a prompt for user to select chain account.</i>
 
     <h3>Encrypt Memo</h3>
     <input type="text" placeholder="chain:username" id="encrypt_username" />
@@ -63,7 +64,8 @@
     <br/><br/>
     <i><b>SignBuffer Notes:</b><br/>If message is a STEEM-compatible "operations" object, the tx will be signed and sig returned in hex format.<br/>
       If message is an EOS-compatible "actions" object, tx will be signed and broadcast.<br/>
-      If message is raw format, message will be signed as a 'binary' byte buffer and sig returned in hex format.</i><br/></br/>
+      If message is raw format, message will be signed as a 'binary' byte buffer and sig returned in hex format.<br/>
+      If message is a jsonrpc object including url (K defaults to "steem_jsonrpc_auth"), <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a signedCall-style jsonRpc message will be signed and broadcast.</i><br/></br/>
     <div id="sig_demos" style="margin:25px;padding:15px;background-color:lightgray;"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
