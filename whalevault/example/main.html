@@ -17,7 +17,8 @@
     <i><b>PubKeys Notes:</b></i><br/>
     <i>Request pubkeys available for multiple accounts in one call by comma-separating <b>chain:username</b> pairs.<br/>
     If required for authentication, app/server must still verify that public keys match those on chain.</i><br/>
-    <i>Supply chain short-code only with colon (ie. "<b>eos:</b>") to popup a prompt for user to select chain account.</i>
+    <i>Supply chain short-code only with colon (ie. "<b>eos:</b>") to popup a prompt for user to select chain account.</i><br/>
+    <i>Supply object with <b>{ account, active, posting, memo }</b> to add/update private keys for a WhaleVault account.</i>
 
     <h3>Encrypt Memo</h3>
     <input type="text" placeholder="chain:username" id="encrypt_username" />
