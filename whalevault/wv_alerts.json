@@ -1,6 +1,6 @@
 {
   "domains": {},
-  "whalevault": "0.1.20",
+  "whalevault": "0.1.21",
   "alerts": [
     {"dt":"2019-07-03T17:00:00Z", "url":"https://whaleshares.io/@alexpmorris/eos-dapps-can-easily-support-whalevault-via-transitapi", "title":"EOS Dapps can Easily Support WhaleVault via TransitAPI!"},
     {"dt":"2019-07-01T17:00:00Z", "url":"https://whaleshares.io/@alexpmorris/whalevault-also-works-with-steemit-com-and-palnet-too", "title":"WhaleVault also works with STEEMIT.com, and PALNET too!"},
