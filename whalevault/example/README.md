@@ -6,7 +6,7 @@ On Ethereum, you never have to enter your private key into a website to use a dA
 
 WhaleVault aims to bring the security and ease-of-use of MetaMask to all graphene-based blockchains, accessible through a single unified extension.
 
-WhaleVault, based on Steem Keychain, is a better, safer cross-chain way to access all your graphene accounts from both desktop and mobile browsers such as Chrome, Firefox, Brave, and Yandex.  Graphene blockchains supported out-of-the-box include WhaleShares, BitShares, Eos, Steem, Smoke, Telos, Worbli, Golos, Peerplays, Scorum, and Vice.  WhaleVault is also the "key vault of choice" for ShareBits.
+WhaleVault, based on Steem Keychain, is a better, safer cross-chain way to access all your graphene accounts from both desktop and mobile browsers such as Chrome, Firefox, Brave, and Yandex.  Graphene blockchains supported out-of-the-box include WhaleShares, BitShares, Eos, Steem, Hive, Blurt, Smoke, Telos, Worbli, Golos, Peerplays, Scorum, and Vice.  WhaleVault is also the "key vault of choice" for ShareBits.
 
 The extension injects the WhaleVault API into each website's javascript context, so that any website that you authorize can safely and securely request a signature or encrypt/decrypt a memo without ever having direct access to any of your private keys.
 
@@ -44,6 +44,9 @@ Or directly from the official github repo: https://github.com/alexpmorris/whalev
 For your own safety and security, **DO NOT INSTALL FROM ANYWHERE ELSE!**
 
 As an additional precaution, you should only allow **"site access"** to the WhaleVault extension in Chrome for those trusted websites that require it.
+
+## Libraries Used
+`jquery.js` (v3.3.1), `whale-1.0.0.js` (v1.0.0 beta, maintained by author), and the `eosjs-*.js` libraries (v20.0.0), built directly from nodejs via webpack: https://github.com/EOSIO/eosjs/releases/tag/20.0.0
 
 ## Example
 
@@ -83,7 +86,7 @@ window.whalevault.requestHandshake("appId", function(response) {
 
 *as promise:*
 ```
-var response = await window.whalevault.promiseRequestHandshake("appId");
+var response = await window.whalevault.promiseHandshake("appId");
 ```
 
 ### Signing Transactions
