@@ -12,6 +12,8 @@ The extension injects the WhaleVault API into each website's javascript context,
 
 Because it adds functionality to the normal browser context, WhaleVault requires permission to read and write any web page that wishes to access the extension. You can always "view source" of WhaleVault the way you would any Chrome extension or Firefox Add-on, or from the official GitHub repo: https://github.com/alexpmorris/whalevault
 
+For those not using Steem Keychain and/or Hive Keychain, WhaleVault will also act as a polyfill for Steem Keychain and Hive Keychain for easily logging into those chains and wallets.  That includes Steem-Engine and Hive-Engine support, all from a single extension!
+
 WhaleVault is a multi-chain fork by @alexpmorris of the Steem Keychain browser extension.  Steem Keychain (repo at https://github.com/MattyIce/steem-keychain) was originally created by @yabapmatt, developed by @stoodkev, and funded by @aggroed. Many thanks to them for creating a great template upon which to build WhaleVault!
 
 ## Features
