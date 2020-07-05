@@ -1,6 +1,6 @@
 {
   "domains": {},
-  "whalevault": "0.1.29",
+  "whalevault": "0.1.30",
   "alerts": [
     {"dt":"2019-08-05T17:00:00Z", "url":"https://whaleshares.io/@merej99/the-usd700-ltc-mistake-scammed", "title":"The $700 LTC Mistake - SCAMMED"},
     {"dt":"2019-07-03T17:00:00Z", "url":"https://whaleshares.io/@alexpmorris/eos-dapps-can-easily-support-whalevault-via-transitapi", "title":"EOS Dapps can Easily Support WhaleVault via TransitAPI!"},
