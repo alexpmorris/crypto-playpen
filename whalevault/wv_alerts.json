@@ -1,8 +1,9 @@
 {
-  "domains": {},
+  "domains": {"sharebits.io":{"reason":"moved to sb.wlsworld.vip"}, "whaleshares.io":{"reason":"moved to wlsworld.vip"}},
   "whalevault": "0.1.48",
   "whalevaultV3": "0.1.49",
   "alerts": [
+    {"dt":"2024-08-21T17:00:00Z", "url":"https://wlsworld.vip/@whaleshares/we-welcome-our-vip-users-to-wlsworld-vip", "title":"new whaleshares.io domain now wlsworld.vip"},
     {"dt":"2024-02-27T17:00:00Z", "url":"https://youtu.be/vu-Y1h9rTUs", "title":"Inside a Crypto Currency Pig Butchering Scam"},
     {"dt":"2022-09-12T17:00:00Z", "url":"https://www.forbes.com/sites/cyrusfarivar/2022/09/09/pig-butchering-crypto-super-scam", "title":"How One Man Lost $1 Million To A Crypto Super Scam Called Pig Butchering"},
     {"dt":"2022-04-20T17:00:00Z", "url":"https://www.cisa.gov/uscert/ncas/alerts/aa22-108a", "title":"Wild North Korean attack story on crypto companies and teams. Hackers used trojans, exploited js/node runtime on Electron, and even had honey pot crypto price APIs."},
