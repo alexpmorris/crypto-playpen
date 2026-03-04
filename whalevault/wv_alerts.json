@@ -1,7 +1,7 @@
 {
   "domains": {"sharebits.io":{"reason":"moved to sb.wlsworld.vip"}, "whaleshares.io":{"reason":"moved to wlsworld.vip"}},
-  "whalevault": "0.1.48",
-  "whalevaultV3": "0.1.49",
+  "whalevault": "0.1.50",
+  "whalevaultV3": "0.1.50",
   "alerts": [
     {"dt":"2024-08-21T17:00:00Z", "url":"https://wlsworld.vip/@whaleshares/we-welcome-our-vip-users-to-wlsworld-vip", "title":"new whaleshares.io domain now wlsworld.vip"},
     {"dt":"2024-02-27T17:00:00Z", "url":"https://youtu.be/vu-Y1h9rTUs", "title":"Inside a Crypto Currency Pig Butchering Scam"},
